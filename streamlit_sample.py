@@ -87,6 +87,7 @@ with st.expander("開きます"):
 with st.sidebar:
   st.write("サイドバー内に表示されます")
 
+  # コードとして表記
   with st.echo():
     st.write("This code will be printesd to the sidebar.")
 
