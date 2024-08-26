@@ -43,7 +43,9 @@ st.write(select)
 
 # プルダウン（複数選択）
 multi_select = st.multiselect("好きな雀士",["多井","瀬戸熊","堀内","堀"])
-st.write(multi_select)
+if multi_select is not None:
+  for i in range(len(multi_select)):
+    st.write(multi_select[i])
 
 # チェックボックス
 check = st.checkbox("OK")
