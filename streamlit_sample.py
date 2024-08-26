@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import time
 
 ### 表示系 
 # テキスト（マークダウンで書ける）
