@@ -34,7 +34,7 @@ st.write(f"名前:{name}")
 st.write(f"年齢:{age}")
 
 # ボタン
-if st.button("Push")
+if st.button("Push"):
   st.write("Button pushed.")
 
 # プルダウン
