@@ -21,9 +21,6 @@ usecols = st.multiselect(
   [0, 3, 4, 5, 6]
 )
 
-# エラーメッセージ表示
-if len(usecols) == 0 or len(names) == 0:
-  st.error('解析対象の列が指定されていません。')
 
 # ヘルプテキスト
 help_txt = '''
@@ -44,3 +41,7 @@ names = st.multiselect(
         'これらの列を何を意味しますか？',
         ['Remote Host', 'Time', 'Request', 'Status', 'Size', 'User Agent', 'Response Time'],
         default_names, help=help_txt)
+
+# エラーメッセージ表示
+if len(usecols) == 0 or len(names) == 0:
+  st.error('解析対象の列が指定されていません。')
