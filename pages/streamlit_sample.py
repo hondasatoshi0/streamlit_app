@@ -92,12 +92,6 @@ with st.sidebar:
   with st.echo():
     st.write("This code will be printesd to the sidebar.")
 
-  # コードブロック実行中にメッセージを一時的に表示する。
-  with st.spinner("Loading..."):
-    time.sleep(5)
-  st.success("Done!")
-  
-
 ## 処理系
 # 状態管理
 st.session_state.name = "aaa"
