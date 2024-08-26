@@ -62,9 +62,6 @@ if uploaded_file:
   st.write(df)
 
 ### レイアウト系
-# ワイドレイアウト
-#st.set_page_config(layout="wide")
-
 # 横に並べる
 cols = st.columns(2)
 with cols[0]:
