@@ -15,15 +15,9 @@ pref_list = [
 # 世界地図の表示
 st.map(pref_list)
 
+
 # プログレスバー
 my_bar = st.progress(0)
-time.sleep(1)
-my_bar = st.progress(20)
-time.sleep(1)
-my_bar = st.progress(40)
-time.sleep(1)
-my_bar = st.progress(60)
-time.sleep(1)
-my_bar = st.progress(80)
-time.sleep(1)
-my_bar = st.progress(100)
+for i in range(0,100):
+  time.sleep(0.1)
+  my_bar.progress(i+1)
