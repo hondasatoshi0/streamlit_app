@@ -86,3 +86,13 @@ with st.expander("開きます"):
 # サイドバー
 with st.sidebar:
   st.write("サイドバー内に表示されます")
+
+## 処理系
+# 状態管理
+st.session_state.name = "aaa"
+
+# 再処理
+st.rerun()
+
+# 処理停止
+st.stop()
