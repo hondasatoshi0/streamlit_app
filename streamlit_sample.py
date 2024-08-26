@@ -77,7 +77,7 @@ with tabs[1]:
   st.write("タブ2")
 
 # アコーディオン
-with st.expender("開きます"):
+with st.expander("開きます"):
   st.write("開きました。")
 
 # サイドバー
