@@ -13,3 +13,6 @@ if uploaded_file is not None:
     na_values='-',
     header=None
   )
+
+st.markdown('### 内容表記')
+st.write(df.head(5))
