@@ -16,6 +16,14 @@ pref_list = [
 st.map(pref_list)
 
 # プログレスバー
-for i in range(0,100):
-  my_bar = st.progress(i+1)
-  time.sleep(1)
+my_bar = st.progress(0)
+time.sleep(1)
+my_bar = st.progress(20)
+time.sleep(1)
+my_bar = st.progress(40)
+time.sleep(1)
+my_bar = st.progress(60)
+time.sleep(1)
+my_bar = st.progress(80)
+time.sleep(1)
+my_bar = st.progress(100)
