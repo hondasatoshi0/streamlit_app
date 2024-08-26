@@ -40,7 +40,8 @@ help_txt = '''
 names = st.multiselect(
         'これらの列を何を意味しますか？',
         ['Remote Host', 'Time', 'Request', 'Status', 'Size', 'User Agent', 'Response Time'],
-        default_names, help=help_txt)
+        ['Remote Host', 'Time', 'Request', 'Status', 'Size', 'User Agent', 'Response Time'],
+        help=help_txt)
 
 # エラーメッセージ表示
 if len(usecols) == 0 or len(names) == 0:
