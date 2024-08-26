@@ -13,7 +13,7 @@ pref_list = [
 ]
 
 # 世界地図の表示
-st.map(pref_list)
+st.map(pref_list,size=1)
 
 
 # プログレスバー
@@ -22,5 +22,3 @@ for i in range(0,100):
   time.sleep(0.1)
   my_bar.progress(i+1)
 
-  if i == 99:
-    st.write("# 完了")
