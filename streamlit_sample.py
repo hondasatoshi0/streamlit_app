@@ -90,9 +90,14 @@ with st.sidebar:
 ## 処理系
 # 状態管理
 st.session_state.name = "aaa"
+st.session_state.count = 0
 
+increment = st.button('Increment')
+if increment:
+  st.session_state.count += 1
+  
 # 再処理
-st.rerun()
+# st.rerun()
 
 # 処理停止
-st.stop()
+# st.stop()
