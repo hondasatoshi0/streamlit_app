@@ -39,7 +39,7 @@ if st.button("Push"):
 
 # プルダウン
 select = st.selectbox("好きな役",["一発","立直","槍槓"])
-st.write(multi_select)
+st.write(select)
 
 # プルダウン（複数選択）
 multi_select = st.multiselect("好きな雀士",["多井","瀬戸熊","堀内","堀"])
