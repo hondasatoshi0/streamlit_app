@@ -90,7 +90,8 @@ with st.sidebar:
 ## 処理系
 # 状態管理
 st.session_state.name = "aaa"
-st.session_state.count = 0
+if 'count' not in st.session_state:
+  st.session_state.count = 0 #countがsession_stateに追加されていない場合、0で初期化
 
 increment = st.button('Increment')
 if increment:
