@@ -1,4 +1,5 @@
 import streamlit as st
+import time
 
 st.write("# Streamlit sample2")
 
@@ -15,7 +16,6 @@ pref_list = [
 st.map(pref_list)
 
 # プログレスバー
-my_bar = st.progress(0)
-my_bar = st.progress(10)
-my_bar = st.progress(20)
-my_bar = st.progress(100)
+for i in range(0,100):
+  my_bar = st.progress(i+1)
+  time.sleep(1)
