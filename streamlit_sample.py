@@ -70,7 +70,7 @@ with cols[1]:
   st.write("列2")
 
 # タブ
-tabs - st.tabs(["タブ1","タブ2"])
+tabs = st.tabs(["タブ1","タブ2"])
 with tabs[0]:
   st.write("タブ1")
 with tabs[1]:
