@@ -6,16 +6,10 @@ uploaded_file = st.file_uploader("アクセスログをアップロードして�
 
 # ファイル読み込み
 if uploaded_file is not None:
-  df = pd.read_csv(
-    uploaded_file,
-    sep=r'\s(?=(?:[^"]*"[^"]*")*[^"]*$)(?![^\[]*\])',
-    engine='python',
-    na_values='-',
-    header=None
-  )
+  df = pd.read_csv(uploaded_file)
 
-  st.markdown('### 内容表記')
-  st.write(df.head(5))
+st.markdown('### 内容表記')
+st.write(df.head(5))
 
 # ページタイトルとページアイコン
 st.set_page_config(page_title="メインページ",page_icon="icon.png")
