@@ -5,7 +5,7 @@ import pandas as pd
 uploaded_file = st.file_uploader("アクセスログをアップロードしてください。")
 
 # ファイル読み込み
-if uploaded_file is not None:
+if uploaded_file:
   df = pd.read_csv(uploaded_file)
 
 st.markdown('### 内容表記')
