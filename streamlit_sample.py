@@ -87,6 +87,14 @@ with st.expander("開きます"):
 with st.sidebar:
   st.write("サイドバー内に表示されます")
 
+  with st.echo():
+    st.write("This code will be printesd to the sidebar.")
+
+  with st.spinner("Loading...")
+    time.sleep(5)
+  st.success("Done!")
+  
+
 ## 処理系
 # 状態管理
 st.session_state.name = "aaa"
