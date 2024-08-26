@@ -11,8 +11,5 @@ if uploaded_file:
   df = pd.read_csv(uploaded_file)
   st.write(df.head(5))
 
-
-
 # ページタイトルとページアイコン
-st.set_page_config(page_title="メインページ")
 st.title("Streamlit テストページ")
