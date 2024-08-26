@@ -1,6 +1,9 @@
 import streamlit as st
 import pandas as pd
 
+# ページタイトルとページアイコン
+st.title("Streamlit テストページ")
+
 # アップローダー
 uploaded_file = st.file_uploader("アクセスログをアップロードしてください。")
 
@@ -11,5 +14,4 @@ if uploaded_file:
   df = pd.read_csv(uploaded_file)
   st.write(df.head(5))
 
-# ページタイトルとページアイコン
-st.title("Streamlit テストページ")
+
