@@ -63,7 +63,7 @@ if uploaded_file:
 
 ### レイアウト系
 # ワイドレイアウト
-st.set_page_config(layout="wide")
+#st.set_page_config(layout="wide")
 
 # 横に並べる
 cols = st.columns(2)
