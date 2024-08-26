@@ -23,4 +23,4 @@ for i in range(0,100):
   my_bar.progress(i+1)
 
   if i == 99:
-    st.write("完了")
+    st.write("# 完了")
