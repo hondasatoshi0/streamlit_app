@@ -21,3 +21,6 @@ my_bar = st.progress(0)
 for i in range(0,100):
   time.sleep(0.1)
   my_bar.progress(i+1)
+
+  if i == 99:
+    st.write("完了")
