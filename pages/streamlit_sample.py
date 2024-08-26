@@ -10,7 +10,7 @@ st.write("# tilte")
 st.caption("注釈")
 
 # 画像
-st.image("サンプル.png")
+st.image("img/サンプル.png")
 
 # テーブル
 df = pd.DataFrame(
