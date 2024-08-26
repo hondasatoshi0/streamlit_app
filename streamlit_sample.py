@@ -7,4 +7,4 @@ st.write("# tilte")
 st.caption("注釈")
 
 # 画像
-st.image()
+st.image("サンプル.png")
