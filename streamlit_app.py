@@ -2,7 +2,10 @@ import streamlit as st
 import pandas as pd
 
 # ページタイトルとページアイコン
-st.title("Streamlit テストページ")
+st.title("Streamlit main")
+
+st.page_link("https://taiyo-chemicals-sample.streamlit.app/")
+st.page_link("https://taiyo-chemicals-sample2.streamlit.app/")
 
 # アップローダー
 uploaded_file = st.file_uploader("アクセスログをアップロードしてください。")
@@ -44,7 +47,7 @@ names = st.multiselect(
         help=help_txt)
 
 # 世界地図の表示
-st.map(df)
+st.map()
 
 # エラーメッセージ表示
 if len(usecols) == 0 or len(names) == 0:
