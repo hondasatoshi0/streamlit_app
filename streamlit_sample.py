@@ -76,6 +76,9 @@ with tabs[0]:
 with tabs[1]:
   st.write("タブ2")
 
+# ?
+st.bar_chart({"data": [1, 5, 2, 6, 2, 1]})
+
 # アコーディオン
 with st.expander("開きます"):
   st.write("開きました。")
