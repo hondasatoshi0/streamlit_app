@@ -23,7 +23,3 @@ usecols = st.multiselect(
 
 # 世界地図の表示
 st.map()
-
-# エラーメッセージ表示
-if len(usecols) == 0 or len(names) == 0:
-  st.error('解析対象の列が指定されていません。')
