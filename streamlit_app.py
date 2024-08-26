@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 
 # ページタイトルとページアイコン
+st.set_page_config("Stream test",icon="energy.ico")
 st.title("Streamlit テストページ")
 
 # アップローダー
