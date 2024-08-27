@@ -17,7 +17,7 @@ st.write("氏名:",name)
 request = st.text_input("依頼内容（最大200文字）　※必須", max_chars = 200)
 
 # ファイルアップロード
-st.write("写真や資料があればこちらからアップロードしてください。※１つまで")
+st.write("写真や資料があればこちらからアップロードしてください。（１つまで）")
 uploaded_file = st.file_uploader("アップロード")
 
 # 依頼詳細１
@@ -35,3 +35,6 @@ d = st.date_input("希望納期　※必須", value = None)
 # 緊急性
 st.write("緊急ですか？")
 check = st.checkbox("はい")
+
+# 送信ボタン
+st.button("送信")
