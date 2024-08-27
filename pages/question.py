@@ -75,7 +75,7 @@ if st.session_state.page == 'page1':
     
     # 送信ボタン
     if st.button("送信"):
-        with st.spinner('送信中...')
+        with st.spinner('送信中...'):
             time.sleep(2)
         go_to_page('page2')
 
