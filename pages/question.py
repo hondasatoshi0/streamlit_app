@@ -37,4 +37,5 @@ st.write("緊急ですか？")
 check = st.checkbox("はい")
 
 # 送信ボタン
-st.button("送信")
+if st.button("送信"):
+  st.write("送信されました。")
