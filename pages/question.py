@@ -2,7 +2,7 @@ import streamlit as st
 import datetime
 import re
 
-st.tilte("依頼書フォーム")
+st.title("依頼書フォーム")
 st.write("# 依頼書フォーム")
 
 # 部署
