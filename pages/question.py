@@ -12,6 +12,24 @@ if 'name' not in st.session_state:
 if 'request' not in st.session_state:
     st.session_state.request = ''
 
+if 'uploaded_file' not in st.session_state:
+    st.session_state.uploaded_file = ''
+    
+if 'request_detail1' not in st.session_state:
+    st.session_state.request_detail1 = ''
+
+if 'request_detail2' not in st.session_state:
+    st.session_state.request_detail2 = ''
+
+if 'request_detail3' not in st.session_state:
+    st.session_state.request_detail3 = ''
+
+if 'd' not in st.session_state:
+    st.session_state.d = ''
+
+if 'check' not in st.session_state:
+    st.session_state.check = ''
+
 # セッションステートで現在のページを管理
 if 'page' not in st.session_state:
     st.session_state.page = 'page1'
@@ -64,6 +82,12 @@ elif st.session_state.page == 'page2':
     st.write(f"所属部署：{st.session_state.section}")
     st.write(f"氏名：{st.session_state.name}")
     st.write(f"依頼内容：{st.session_state.request}")
+    st.write(f"ファイル：{st.session_state.uploaded_file}")
+    st.write(f"製品の品質に関する注意事項内容又は要望：{st.session_state.request_detail1}")
+    st.write(f"動作に関する注意事項又は要望：{st.session_state.request_detail2}")
+    st.write(f"そのほかの注意事項内容又は要望：{st.session_state.request_detail3}")
+    st.write(f"希望納期：{st.session_state.d}")
+    st.write(f"緊急性：{st.session_state.check}")
     
     if st.button("別の回答を送信"):
         go_to_page('page1')
