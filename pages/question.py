@@ -81,8 +81,8 @@ if st.session_state.page == 'page1':
         st.write(f"request:{st.session_state.request}")
         st.write(f"d:{st.session_state.d}")
         if st.session_state.section is not None \
-            and st.session_state.name is not None \
-                and st.session_state.request is not None \
+            and st.session_state.name is not None and not st.session_state.name == "" \
+                and st.session_state.request is not None and not st.session_state.request == "" \
                     and st.session_state.d is not None:
             go_to_page('page2')
             st.rerun()
