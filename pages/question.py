@@ -83,7 +83,14 @@ if st.session_state.page == 'page1':
             go_to_page('page2')
             st.rerun()
         else:
-            st.error("【エラー】入力が完了していません。")
+            if st.session_state.section is None:
+                st.error("【エラー】所属部署を選択してください。")
+            if st.session_state.name is None:
+                st.error("【エラー】氏名を入力してください。")
+            if st.session_state.request is None:
+                st.error("【エラー】依頼内容を入力してください。")
+            if st.session_state.d is None:
+                st.error("【エラー】希望納期を選択してください。")
 
 elif st.session_state.page == 'page2':
     st.title("回答を送信しました")
