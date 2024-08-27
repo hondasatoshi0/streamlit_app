@@ -8,10 +8,7 @@ st.write("# 依頼書フォーム")
 section = st.selectbox("所属部署", ["製造１課","製造２課","製造３課","エンジニアリング部","押出課","その他"], index = None, placeholder = "所属部署を選択してください。")
 
 # 氏名
-if 'key_counter' not in st.session_state:
-  st.session_state.key_counter = 0
-
-name = st.text_input("氏名", key = f"input_{st.session_state.key_counter}")
+name = st.text_input("氏名")
 name = name.replace(' ','')
 name = name.replace('　','')
 st.write("氏名:",name)
@@ -42,4 +39,18 @@ check = st.checkbox("はい")
 # 送信ボタン
 if st.button("送信"):
   st.write("送信されました。")
-  st.session_state.key_counter += 1
+
+# セッションステートにデフォルト値を設定
+if 'input_value' not in st.session_state:
+    st.session_state.input_value = ""
+
+# テキスト入力ウィジェット
+input_value = st.text_input("Enter something", value=st.session_state.input_value)
+
+# リセットボタン
+if st.button("Clear input"):
+    st.session_state.input_value = ""  # セッションステートをクリア
+    st.rerun()  # ページをリロードしてクリアを反映
+
+# 入力値を表示
+st.write("You entered:", input_value)
