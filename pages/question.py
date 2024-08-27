@@ -30,9 +30,8 @@ request_detail2 = st.text_input("動作に関する注意事項又は要望　�
 request_detail3 = st.text_input("そのほかの注意事項内容又は要望　※最大200文字", max_chars = 200)
 
 # 希望納期
-d = st.date_input("希望納期を入力してください。",datetime.datetime.now())
+d = st.date_input("希望納期", value = None)
 
 # 緊急性
 st.write("緊急ですか？")
-st.caption("緊急の依頼の場合はチェックをしてください。")
 check = st.checkbox("はい")
