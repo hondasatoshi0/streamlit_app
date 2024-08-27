@@ -1,5 +1,6 @@
 import streamlit as st
 import datetime
+import re
 
 st.write("# 依頼書フォーム")
 
@@ -8,6 +9,9 @@ section = st.selectbox("所属部署", ["製造１課","製造２課","製造３
 
 # 氏名
 name = st.text_input("氏名　※空白を空けずに入力してください。")
+if "　" in name or " " in name:
+  st.error("空白があります。")
+
 
 # 依頼内容
 request = st.text_input("依頼内容　※最大200文字", max_chars = 200)
