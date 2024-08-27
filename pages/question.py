@@ -14,7 +14,7 @@ if "name" not in st.session_state:
 name_input = st.text_input("氏名　※空白を空けずに入力してください。")
 
 if name_input is not None:
-  name_split = re.split(name_input)
+  name_split = re.split("[; :　/]",name_input)
   for i in range(len(name_split)):
     st.session_state.name = st.session_state.name + name_split[i]
 
