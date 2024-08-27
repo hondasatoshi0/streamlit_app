@@ -13,7 +13,6 @@ name = name.replace(' ','')
 name = name.replace('　','')
 st.write("氏名:",name)
 
-
 # 依頼内容
 request = st.text_input("依頼内容　※最大200文字", max_chars = 200)
 
@@ -32,3 +31,8 @@ request_detail3 = st.text_input("そのほかの注意事項内容又は要望�
 
 # 希望納期
 d = st.date_input("希望納期を入力してください。",datetime.datetime.now())
+
+# 緊急性
+st.write("緊急ですか？")
+st.caption("緊急の依頼の場合はチェックをしてください。")
+check = st.checkbox("はい")
