@@ -43,4 +43,4 @@ check = st.checkbox("はい")
 if st.button("送信"):
   st.write("送信されました。")
   st.session_state.name = ""
-  st.experimental_rerun()
+  st.rerun()
