@@ -8,9 +8,16 @@ st.write("# 依頼書フォーム")
 section = st.selectbox("所属部署", ["製造１課","製造２課","製造３課","エンジニアリング部","押出課","その他"], index = None, placeholder = "所属部署を選択してください。")
 
 # 氏名
-name = st.text_input("氏名　※空白を空けずに入力してください。")
-if "　" in name or " " in name:
-  st.error("空白があります。")
+if "name" not in st.session_state:
+  st.session_state.name = ""
+  
+name_input = st.text_input("氏名　※空白を空けずに入力してください。")
+
+if name_input is not None:
+  name_split = re.split(name_input)
+  for i in range(len(name_split)):
+    st.session_state.name = st.session_state.name + name_split[i]
+
 
 
 # 依頼内容
