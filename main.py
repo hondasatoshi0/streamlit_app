@@ -5,7 +5,7 @@ import pandas as pd
 st.title("Streamlit main")
 
 # ページリンク
-st.write("# サンプル")
+st.write("### サンプル")
 st.page_link("pages/streamlit_sample.py", label="sample 1",icon="1⃣")
 st.page_link("pages/streamlit_sample2.py", label="sample 2",icon="2⃣")
 
