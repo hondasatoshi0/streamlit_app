@@ -18,6 +18,7 @@ if name_input is not None:
   for i in range(len(name_split)):
     st.session_state.name = st.session_state.name + name_split[i]
 
+st.write("氏名:",st.session_state.name)
 
 
 # 依頼内容
