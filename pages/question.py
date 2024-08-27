@@ -41,6 +41,9 @@ def go_to_page(page_name):
 # ページごとのコンテンツを表示
 if st.session_state.page == 'page1':
     st.title("依頼書フォーム")
+
+    # 注釈
+    sp.caption("*必須の質問")
     
     # 部署
     st.session_state.section = st.selectbox("所属部署*", ["製造１課","製造２課","製造３課","エンジニアリング部","押出課","その他"], index = None, placeholder = "所属部署を選択してください。")
@@ -56,13 +59,13 @@ if st.session_state.page == 'page1':
     st.session_state.uploaded_file = st.file_uploader("写真や資料があればこちらからアップロードしてください。（１つまで）")
     
     # 依頼詳細１
-    st.session_state.request_detail1 = st.text_input("製品の品質に関する注意事項内容又は要望（最大200文字）*", max_chars = 200)
+    st.session_state.request_detail1 = st.text_input("製品の品質に関する注意事項内容又は要望（最大200文字）", max_chars = 200)
     
     # 依頼詳細２
-    st.session_state.request_detail2 = st.text_input("動作に関する注意事項又は要望（最大200文字）*", max_chars = 200)
+    st.session_state.request_detail2 = st.text_input("動作に関する注意事項又は要望（最大200文字）", max_chars = 200)
     
     # 依頼詳細３
-    st.session_state.request_detail3 = st.text_input("そのほかの注意事項内容又は要望（最大200文字）*", max_chars = 200)
+    st.session_state.request_detail3 = st.text_input("そのほかの注意事項内容又は要望（最大200文字）", max_chars = 200)
     
     # 希望納期
     st.session_state.d = st.date_input("希望納期*", value = None)
