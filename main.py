@@ -5,8 +5,8 @@ import pandas as pd
 st.title("Streamlit main")
 
 # ページリンク
-st.page_link("pages/streamlit_sample.py", label="sample 1")
-st.page_link("pages/streamlit_sample2.py", label="sample 2")
+st.page_link("pages/streamlit_sample.py", label="sample 1",icon="1⃣")
+st.page_link("pages/streamlit_sample2.py", label="sample 2",icon="2⃣")
 
 # アップローダー
 uploaded_file = st.file_uploader("アクセスログをアップロードしてください。")
