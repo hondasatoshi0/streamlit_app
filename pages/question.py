@@ -75,11 +75,8 @@ if st.session_state.page == 'page1':
     
     # 送信ボタン
     if st.button("送信"):
-        # プログレスバー
-        my_bar = st.progress(0)
-        for i in range(0,100):
-            time.sleep(0.05)
-            my_bar.progress(i+1)
+        with st.spinner('送信中...')
+            time.sleep(2)
         go_to_page('page2')
 
 elif st.session_state.page == 'page2':
