@@ -14,23 +14,23 @@ name = name.replace('　','')
 st.write("氏名:",name)
 
 # 依頼内容
-request = st.text_input("依頼内容　※最大200文字", max_chars = 200)
+request = st.text_input("依頼内容（最大200文字）　※必須", max_chars = 200)
 
 # ファイルアップロード
 st.write("写真や資料があればこちらからアップロードしてください。※１つまで")
 uploaded_file = st.file_uploader("アップロード")
 
 # 依頼詳細１
-request_detail1 = st.text_input("製品の品質に関する注意事項内容又は要望　※最大200文字", max_chars = 200)
+request_detail1 = st.text_input("製品の品質に関する注意事項内容又は要望（最大200文字）　※必須", max_chars = 200)
 
 # 依頼詳細２
-request_detail2 = st.text_input("動作に関する注意事項又は要望　※最大200文字", max_chars = 200)
+request_detail2 = st.text_input("動作に関する注意事項又は要望（最大200文字）　※必須", max_chars = 200)
 
 # 依頼詳細３
-request_detail3 = st.text_input("そのほかの注意事項内容又は要望　※最大200文字", max_chars = 200)
+request_detail3 = st.text_input("そのほかの注意事項内容又は要望（最大200文字）　※必須", max_chars = 200)
 
 # 希望納期
-d = st.date_input("希望納期", value = None)
+d = st.date_input("希望納期　※必須", value = None)
 
 # 緊急性
 st.write("緊急ですか？")
