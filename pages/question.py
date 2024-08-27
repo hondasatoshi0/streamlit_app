@@ -48,7 +48,6 @@ if st.session_state.page == 'page1':
     # 氏名
     name = st.text_input("氏名*")
     st.session_state.name = name.replace(' ','').replace('　','')
-    st.write("氏名:",name)
     
     # 依頼内容
     st.session_state.request = st.text_input("依頼内容（最大200文字）*", max_chars = 200)
