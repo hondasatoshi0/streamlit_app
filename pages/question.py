@@ -2,6 +2,16 @@ import streamlit as st
 import datetime
 import re
 
+# 初期値設定
+if 'section' not in st.session_state:
+    st.session_state.section = ''
+
+if 'name' not in st.session_state:
+    st.session_state.name = ''
+
+if 'request' not in st.session_state:
+    st.session_state.request = ''
+
 # セッションステートで現在のページを管理
 if 'page' not in st.session_state:
     st.session_state.page = 'page1'
@@ -15,16 +25,15 @@ if st.session_state.page == 'page1':
     st.title("依頼書フォーム")
     
     # 部署
-    section = st.selectbox("所属部署", ["製造１課","製造２課","製造３課","エンジニアリング部","押出課","その他"], index = None, placeholder = "所属部署を選択してください。")
+    st.session_state.section = st.selectbox("所属部署", ["製造１課","製造２課","製造３課","エンジニアリング部","押出課","その他"], index = None, placeholder = "所属部署を選択してください。")
     
     # 氏名
     name = st.text_input("氏名")
-    name = name.replace(' ','')
-    name = name.replace('　','')
+    st.session_state.name = name.replace(' ','').replace('　','')
     st.write("氏名:",name)
     
     # 依頼内容
-    request = st.text_input("依頼内容（最大200文字）　※必須", max_chars = 200)
+    st.session_state.request = st.text_input("依頼内容（最大200文字）　※必須", max_chars = 200)
     
     # ファイルアップロード
     st.write("写真や資料があればこちらからアップロードしてください。（１つまで）")
@@ -52,10 +61,9 @@ if st.session_state.page == 'page1':
 
 elif st.session_state.page == 'page2':
     st.title("回答を送信しました")
-    st.write(f"所属部署：{section}")
-    st.write(f"氏名：{name}")
-    st.write(f"所属部署：{section}")
-    st.write(f"依頼内容：{request}")
+    st.write(f"所属部署：{st.session_state.section}")
+    st.write(f"氏名：{st.session_state.name}")
+    st.write(f"依頼内容：{st.session_state.request}")
     
     if st.button("別の回答を送信"):
         go_to_page('page1')
