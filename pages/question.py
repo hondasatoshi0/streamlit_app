@@ -46,12 +46,23 @@ if st.button("送信"):
 if 'input_value' not in st.session_state:
     st.session_state.input_value = ""
 
-# テキスト入力ウィジェットにセッションステートをバインド
-input_value = st.text_input("Enter something", key="input_value")
+# リセットフラグを管理
+if 'clear_flag' not in st.session_state:
+    st.session_state.clear_flag = False
+
+# テキスト入力ウィジェット
+input_value = st.text_input("Enter something", value=st.session_state.input_value)
 
 # リセットボタン
 if st.button("Clear input"):
-    st.session_state.input_value = ""  # セッションステートをクリア
+    st.session_state.clear_flag = True
+    st.session_state.input_value = ""
+    st.rerun()
+
+# フラグがTrueならクリアする
+if st.session_state.clear_flag:
+    st.session_state.clear_flag = False
+    st.session_state.input_value = ""
 
 # 入力値を表示
 st.write("You entered:", input_value)
