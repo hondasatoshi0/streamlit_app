@@ -39,4 +39,4 @@ check = st.checkbox("はい")
 # 送信ボタン
 if st.button("送信"):
   st.write("送信されました。")
-  name = ""
+  st.rerun()
