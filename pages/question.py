@@ -40,17 +40,18 @@ check = st.checkbox("はい")
 if st.button("送信"):
   st.write("送信されました。")
 
+####
+
 # セッションステートにデフォルト値を設定
 if 'input_value' not in st.session_state:
     st.session_state.input_value = ""
 
-# テキスト入力ウィジェット
-input_value = st.text_input("Enter something", value=st.session_state.input_value)
+# テキスト入力ウィジェットにセッションステートをバインド
+input_value = st.text_input("Enter something", key="input_value")
 
 # リセットボタン
 if st.button("Clear input"):
     st.session_state.input_value = ""  # セッションステートをクリア
-    st.rerun()  # ページをリロードしてクリアを反映
 
 # 入力値を表示
 st.write("You entered:", input_value)
