@@ -76,12 +76,14 @@ if st.session_state.page == 'page1':
     
     # 送信ボタン
     if st.button("送信"):
-        if st.session_state.request is not None \
-            and st.session_state.request is not None:
-                go_to_page('page2')
-                st.rerun()
+        if st.session_state.section is not None \
+            and st.session_state.name is not None \
+                and st.session_state.request is not None \
+                    and st.session_state.d is not None:
+            go_to_page('page2')
+            st.rerun()
         else:
-            st.error("エラー")
+            st.error("【エラー】入力が完了していません。")
 
 elif st.session_state.page == 'page2':
     st.title("回答を送信しました")
