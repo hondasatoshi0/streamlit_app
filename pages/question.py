@@ -8,10 +8,10 @@ st.write("# 依頼書フォーム")
 section = st.selectbox("所属部署", ["製造１課","製造２課","製造３課","エンジニアリング部","押出課","その他"], index = None, placeholder = "所属部署を選択してください。")
 
 # 氏名
-if 'name' not in st.session_state:
-  st.session_state.name = ""
+if 'key_counter' not in st.session_state:
+  st.session_state.key_counter = 0
 
-name = st.text_input("氏名", value = st.session_state.name)
+name = st.text_input("氏名", key = f"input_{st.session_state.key_counter}")
 name = name.replace(' ','')
 name = name.replace('　','')
 st.write("氏名:",name)
@@ -42,5 +42,4 @@ check = st.checkbox("はい")
 # 送信ボタン
 if st.button("送信"):
   st.write("送信されました。")
-  st.session_state.name = ""
-  st.rerun()
+　st.session_state.key_counter += 1
