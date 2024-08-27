@@ -89,9 +89,9 @@ if st.session_state.page == 'page1':
         else:
             if st.session_state.section is None:
                 st.error("【エラー】所属部署を選択してください。")
-            if st.session_state.name is None:
+            if st.session_state.name is None or st.session_state.name == "":
                 st.error("【エラー】氏名を入力してください。")
-            if st.session_state.request is None:
+            if st.session_state.request is None or st.session_state.request == "":
                 st.error("【エラー】依頼内容を入力してください。")
             if st.session_state.d is None:
                 st.error("【エラー】希望納期を選択してください。")
