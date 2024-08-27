@@ -78,6 +78,7 @@ if st.session_state.page == 'page1':
         with st.spinner('送信中...'):
             time.sleep(2)
         go_to_page('page2')
+        st.rerun()
 
 elif st.session_state.page == 'page2':
     st.title("回答を送信しました")
