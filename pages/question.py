@@ -76,10 +76,10 @@ if st.session_state.page == 'page1':
     
     # 送信ボタン
     if st.button("送信"):
-        st.write(f"{st.session_state.section}")
-        st.write(f"{st.session_state.name}")
-        st.write(f"{st.session_state.request}")
-        st.write(f"{st.session_state.d}")
+        st.write(f"section:{st.session_state.section}")
+        st.write(f"name:{st.session_state.name}")
+        st.write(f"request:{st.session_state.request}")
+        st.write(f"d:{st.session_state.d}")
         if st.session_state.section is not None \
             and st.session_state.name is not None \
                 and st.session_state.request is not None \
