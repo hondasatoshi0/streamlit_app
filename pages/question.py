@@ -1,6 +1,6 @@
 import streamlit as st
 import datetime
-import re
+import time
 
 # 初期値設定
 if 'section' not in st.session_state:
