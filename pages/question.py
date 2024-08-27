@@ -48,21 +48,16 @@ if st.session_state.page == 'page1':
     
     # 送信ボタン
     if st.button("送信"):
-      st.write("送信されました。")
-      st.rerun()
-    ####
-  
-
-  
-
-  
-    if st.button("Go to Page 2"):
-        go_to_page('page2')
+      go_to_page('page2')
 
 elif st.session_state.page == 'page2':
-    st.title("Page 2")
-    st.write("This is the second page.")
-    if st.button("Go back to Page 1"):
+    st.title("回答を送信しました")
+    st.write(f"所属部署：{section}")
+    st.write(f"氏名：{name}")
+    st.write(f"所属部署：{section}")
+    st.write(f"依頼内容：{request}")
+    
+    if st.button("別の回答を送信"):
         go_to_page('page1')
 
 
