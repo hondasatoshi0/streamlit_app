@@ -4,6 +4,10 @@ import pandas as pd
 # ページタイトルとページアイコン
 st.title("Streamlit main")
 
+# ページリンク
+st.page_link("pages/streamlit_sample.py", label="sample 1")
+st.page_link("pages/streamlit_sample2.py", label="sample 2")
+
 # アップローダー
 uploaded_file = st.file_uploader("アクセスログをアップロードしてください。")
 
