@@ -53,8 +53,7 @@ if st.session_state.page == 'page1':
     st.session_state.request = st.text_input("依頼内容（最大200文字）*", max_chars = 200)
     
     # ファイルアップロード
-    st.write("写真や資料があればこちらからアップロードしてください。（１つまで）")
-    st.session_state.uploaded_file = st.file_uploader("")
+    st.session_state.uploaded_file = st.file_uploader("写真や資料があればこちらからアップロードしてください。（１つまで）")
     
     # 依頼詳細１
     st.session_state.request_detail1 = st.text_input("製品の品質に関する注意事項内容又は要望（最大200文字）*", max_chars = 200)
