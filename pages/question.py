@@ -59,7 +59,7 @@ class SQLServer:
                         # 確定
                         self.cursor.commit()
                     except Exception as e:
-                        sg.popup(f"【Error】{e}\n【Table_name】{table_name}\n【data】{tuple(data)}")
+                        st.write(f"{e}")
 
     def updateRequestForm(self,update_data):
         """「T_依頼書一覧」の「担当者」「進捗ステータス」「製作費用」「納品完了日時」「メモ 」「納品予定日」を更新
