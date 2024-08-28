@@ -7,7 +7,7 @@ import re
 # vsc 追加
 # 接続文字列を設定
 conn_str = (
-    'DRIVER={SQL Server};'
+    'DRIVER={Microsoft JDBC Driver 9.2 for SQL Server};'
     'SERVER=192.168.1.5\SQLEXPRESS;'
     'DATABASE=IoTtest;'
     'UID=sa;'
