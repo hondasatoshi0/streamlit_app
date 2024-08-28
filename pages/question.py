@@ -4,6 +4,7 @@ import time
 import pyodbc
 import re
 
+#追加
 # 全データ項目
 all_data_name = [
     'タイムスタンプ',
