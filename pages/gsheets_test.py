@@ -1,8 +1,8 @@
 import streamlit as st
-import gsheetsdb
+from gsheetsdb import connect
 import pandas as pd
 
-conn = gsheetsdb.connect()
+conn = connect()
 def run_query(query):
   rows = conn.execute(query, headers=1)
   return rows
