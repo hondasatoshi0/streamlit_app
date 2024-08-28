@@ -48,8 +48,6 @@ worksheet = spreadsheet.get_worksheet(0)  # 最初のワークシートを取得
 # データを取得してDataFrameに変換
 data = worksheet.get_all_records()
 
-st.write(data)
-
 # 抽出実行「所属部署」
 data_filter = list(filter(lambda x : x["所属部署"] in section_select, data))
 
