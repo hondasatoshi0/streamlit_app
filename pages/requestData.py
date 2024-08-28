@@ -43,4 +43,4 @@ df = pd.DataFrame(data)
 df_filter = list(filter(lambda x : x[1] in section_select, df))
 
 # Streamlitでデータを表示
-st.write(df)
+st.write(df_filter)
