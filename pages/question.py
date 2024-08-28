@@ -147,7 +147,11 @@ elif st.session_state.page == 'page2':
                 st.session_state.check
     ]
 
-    worksheet.append_row(new_data)
+        # データがリスト形式であることを確認
+    if isinstance(new_data, list):
+        worksheet.append_row(new_data)
+    else:
+        st.error("追加するデータはリスト形式でなければなりません。")
     
     st.write("データがスプレッドシートに書き込まれました。")
 
