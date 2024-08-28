@@ -160,7 +160,22 @@ elif st.session_state.page == 'page2':
                     st.session_state.d.strftime("%Y/%m/%d"),
                     st.session_state.check
         ]
-    
+
+        df = pd.DataFrame(
+            "依頼日時": datetime.datetime.now(pytz.timezone('Asia/Tokyo')).strftime("%Y/%m/%d %H:%M:%S"),
+            "所属部署": st.session_state.section,
+            "氏名": st.session_state.name,
+            "依頼内容": st.session_state.request,
+            "ファイル": st.session_state.uploaded_file,
+            "製品の品質に関する注意事項内容又は要望": st.session_state.request_detail1,
+            "動作に関する注意事項又は要望": st.session_state.request_detail2,
+            "そのほかの注意事項内容又は要望": st.session_state.request_detail3,
+            "希望納期": st.session_state.d.strftime("%Y/%m/%d"),
+            "緊急性": st.session_state.check,
+        )
+
+        st.write(df)
+        
         st.write(f"依頼日時：{datetime.datetime.now(pytz.timezone('Asia/Tokyo')).strftime("%Y/%m/%d %H:%M:%S")}")
         st.write(f"所属部署：{st.session_state.section}")
         st.write(f"氏名：{st.session_state.name}")
