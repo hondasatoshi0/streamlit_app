@@ -22,7 +22,7 @@ creds = ServiceAccountCredentials.from_json_keyfile_dict(credentials, scope)
 client = gspread.authorize(creds)
 
 # スプレッドシートにアクセス
-spreadsheet = client.open("Streamlitテスト用")  # スプレッドシートの名前を指定
+spreadsheet = client.open("https://docs.google.com/spreadsheets/d/15-5s3LOdSheVRPsrhhfeYdfC-QLi7TQVXhYdwbSu-oc/edit?usp=sharing")  # スプレッドシートの名前を指定
 worksheet = spreadsheet.get_worksheet(0)  # 最初のワークシートを取得
 
 # データを取得してDataFrameに変換
