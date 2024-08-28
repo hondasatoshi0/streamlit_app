@@ -182,7 +182,7 @@ elif st.session_state.page == 'page2':
         st.session_state.sent = 1
     
     if st.button("別の回答を送信"):
-        if st.session_state.sent == 1
+        if st.session_state.sent == 1:
             st.session_state.sent = 0
             go_to_page('page1')
             st.rerun()
