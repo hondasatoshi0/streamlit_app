@@ -157,7 +157,7 @@ elif st.session_state.page == 'page2':
                     st.session_state.request_detail1,
                     st.session_state.request_detail2,
                     st.session_state.request_detail3,
-                    str(st.session_state.d),
+                    st.session_state.d.strftime("%Y/%m/%d"),
                     st.session_state.check
         ]
     
