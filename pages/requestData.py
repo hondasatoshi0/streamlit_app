@@ -10,8 +10,11 @@ st.title("依頼一覧")
 config = configparser.ConfigParser()
 config.read('conf/settings.ini')
 section_list = []
-for i in range(100):
-    section_list.append(config["section_list"][f"section_{i}"])
+try:
+    for i in range(100):
+        section_list.append(config["section_list"][f"section_{i}"])
+except KeyError:
+    pass
 
 st.write("section_list")
 
