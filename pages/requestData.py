@@ -3,6 +3,8 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import pandas as pd
 
+st.title("依頼一覧")
+
 credentials = {
     "type": st.secrets["gcp_service_account"]["type"],
     "project_id": st.secrets["gcp_service_account"]["project_id"],
