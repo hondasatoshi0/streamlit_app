@@ -2,7 +2,7 @@ import shillelagh
 import gsheetsdb
 import pandas as pd
 
-conn = connect()
+conn = gsheetsdb.connect()
 def run_query(query):
   rows = conn.execute(query, headers=1)
   return rows
