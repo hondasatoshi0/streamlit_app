@@ -47,7 +47,7 @@ if st.session_state.page == 'page1':
     st.caption("*必須の質問")
 
     # 現在日時
-    st.write(f"{datetime.datetime.now()}")
+    st.write(f"{datetime.datetime.now().format("%Y/%M/%D %h:%m:%s")}")
     
     
     # 部署
