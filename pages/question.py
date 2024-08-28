@@ -109,9 +109,8 @@ if st.session_state.page == 'page1':
                     st.error("【エラー】希望納期を選択してください。")
 
 elif st.session_state.page == 'page2':
+    st.title("回答を送信しました。")
     if st.session_state.sent == 0:
-        st.title("回答を送信しました。")
-        
         # 認証情報
         credentials = {
             "type": st.secrets["gcp_service_account"]["type"],
