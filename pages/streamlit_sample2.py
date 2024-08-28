@@ -1,6 +1,7 @@
 import streamlit as st
 import time
 
+
 st.write("# Streamlit sample2")
 
 # 緯度経度データ（10進数）
