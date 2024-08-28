@@ -4,7 +4,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 import pandas as pd
 
 credentials = {
-    type = st.secrets["gcp_service_account"]["type"],
+    "type" = st.secrets["gcp_service_account"]["type"],
     "project_id": st.secrets["gcp_service_account"]["project_id"],
     "private_key_id": st.secrets["gcp_service_account"]["private_key_id"],
     "private_key": st.secrets["gcp_service_account"]["private_key"],
