@@ -79,7 +79,7 @@ if st.session_state.page == 'page1':
     st.session_state.request_detail3 = st.text_input("そのほかの注意事項内容又は要望（最大200文字）", max_chars = 200)
     
     # 希望納期
-    st.session_state.d = st.date_input("希望納期*", value = None)
+    st.session_state.d = st.date_input("希望納期*", value = None, format ="YYYY/MM/DD")
     
     # 緊急性
     st.write("緊急ですか？")
