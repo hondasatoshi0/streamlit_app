@@ -84,14 +84,6 @@ st.write("アコーディオン")
 with st.expander("開きます"):
   st.write("開きました。")
 
-# サイドバー
-with st.sidebar:
-  st.write("サイドバー内に表示されます")
-
-  # コードとして表記
-  with st.echo():
-    st.write("This code will be printesd to the sidebar.")
-
 ## 処理系
 # 状態管理
 st.session_state.name = "aaa"
