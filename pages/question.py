@@ -91,7 +91,7 @@ if st.session_state.page == 'page1':
     
     # 送信ボタン
     if st.button("送信"):
-        if st.session_state.sent = 0:
+        if st.session_state.sent == 0:
             if st.session_state.section is not None \
                 and st.session_state.name is not None and not st.session_state.name == "" \
                     and st.session_state.request is not None and not st.session_state.request == "" \
@@ -109,7 +109,7 @@ if st.session_state.page == 'page1':
                     st.error("【エラー】希望納期を選択してください。")
 
 elif st.session_state.page == 'page2':
-    if st.session_state.sent = 0:
+    if st.session_state.sent == 0:
         st.title("回答を送信しました。")
         
         # 認証情報
@@ -182,9 +182,10 @@ elif st.session_state.page == 'page2':
         st.session_state.sent = 1
     
     if st.button("別の回答を送信"):
-        st.session_state.sent = 0
-        go_to_page('page1')
-        st.rerun()
+        if st.session_state.sent == 1
+            st.session_state.sent = 0
+            go_to_page('page1')
+            st.rerun()
 
 
 
