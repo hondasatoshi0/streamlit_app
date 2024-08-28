@@ -2,9 +2,18 @@ import streamlit as st
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import pandas as pd
+import configparser
 
 st.title("依頼一覧")
 
+# 設定情報取得
+config = configparser.ConfigParser()
+config.read('conf/settings.ini')
+section_list = []
+for i in range(100):
+    section_list.append(config["section_list"]["section_{i}"])
+
+st.write("section_list")
 
 st.write('# ソート機能')
 section_select = st.multiselect(
