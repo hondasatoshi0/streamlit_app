@@ -41,15 +41,15 @@ def go_to_page(page_name):
 
 # ページごとのコンテンツを表示
 if st.session_state.page == 'page1':
-    st.title("依頼書フォーム")
+    cols = st.columns(2)
+    with cols[0]:
+      st.title("依頼書フォーム")
+    with cols[1]:
+      st.write(f"現在日時：{datetime.datetime.now().strftime("%Y/%m/%d %H:%M:%S")}")
 
     # 注釈
     st.caption("*必須の質問")
 
-    # 現在日時
-    st.write(f"{datetime.datetime.now().strftime("%Y/%m/%d %H:%M:%S")}")
-    
-    
     # 部署
     st.session_state.section = st.selectbox("所属部署*", ["製造１課","製造２課","製造３課","エンジニアリング部","押出課","その他"], index = None, placeholder = "所属部署を選択してください。")
     
