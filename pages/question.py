@@ -5,14 +5,11 @@ import pyodbc
 import re
 
 # vsc 追加
-# 接続文字列を設定
-conn_str = (
-    'DRIVER={SQL Server};'
-    'SERVER=192.168.1.5\SQLEXPRESS;'
-    'DATABASE=IoTtest;'
-    'UID=sa;'
-    'PWD=taiyo3553;'
-)
+# 接続文字列を設定    
+conn_str =　"DRIVER={SQL Server};SERVER=192.168.1.5\SQLEXPRESS" \
+            ";uid=sa" \
+            ";pwd=taiyo3553"\
+            ";DATABASE=IoTtest"
 
 # 接続を作成
 conn = pyodbc.connect(conn_str)
