@@ -4,6 +4,8 @@ import time
 import pyodbc
 import re
 
+# vsc 追加
+
 ###
 # 全データ項目
 all_data_name = [
