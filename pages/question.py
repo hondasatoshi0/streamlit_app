@@ -1,6 +1,7 @@
 import streamlit as st
 import datetime
 import time
+import pytz
 import re
 
 # 初期値設定
