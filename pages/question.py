@@ -32,7 +32,6 @@ all_data_name = [
     '納品後回答待ちへ変更'
     ]
 
-
 class SQLServer:
     def __init__(self):
         # 接続設定
