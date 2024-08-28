@@ -174,6 +174,20 @@ elif st.session_state.page == 'page2':
             "緊急性": [st.session_state.check],
         })
 
+        df = pd.DataFrame({
+            "項目":["依頼日時","所属部署","氏名","依頼内容","ファイル","製品の品質に関する注意事項内容又は要望","動作に関する注意事項又は要望","そのほかの注意事項内容又は要望","希望納期","緊急性"],
+            "内容":[datetime.datetime.now(pytz.timezone('Asia/Tokyo')).strftime("%Y/%m/%d %H:%M:%S"),
+                    st.session_state.section,
+                    st.session_state.name,
+                    st.session_state.request,
+                    st.session_state.uploaded_file,
+                    st.session_state.request_detail1,
+                    st.session_state.request_detail2,
+                    st.session_state.request_detail3,
+                    st.session_state.d.strftime("%Y/%m/%d"),
+                    st.session_state.check],
+        })
+
         st.write(df)
         
         st.write(f"依頼日時：{datetime.datetime.now(pytz.timezone('Asia/Tokyo')).strftime("%Y/%m/%d %H:%M:%S")}")
