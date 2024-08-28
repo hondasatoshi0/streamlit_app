@@ -1,3 +1,4 @@
 pyodbc
 shillelagh
 gsheetsdb
+gspread
