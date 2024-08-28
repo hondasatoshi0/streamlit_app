@@ -32,8 +32,6 @@ for row in rows:
 # 接続を閉じる
 conn.close()
 
-st.write(Pic_list)
-
 # 初期値設定
 if 'section' not in st.session_state:
     st.session_state.section = ''
