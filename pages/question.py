@@ -169,7 +169,7 @@ elif st.session_state.page == 'page2':
         st.write(f"製品の品質に関する注意事項内容又は要望：{st.session_state.request_detail1}")
         st.write(f"動作に関する注意事項又は要望：{st.session_state.request_detail2}")
         st.write(f"そのほかの注意事項内容又は要望：{st.session_state.request_detail3}")
-        st.write(f"希望納期：{st.session_state.d}")
+        st.write(f"希望納期：{st.session_state.d.strftime("%Y/%m/%d")}")
         st.write(f"緊急性：{st.session_state.check}")
     
         # データがリスト形式であることを確認
