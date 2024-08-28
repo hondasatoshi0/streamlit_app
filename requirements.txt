@@ -2,3 +2,4 @@ pyodbc
 shillelagh
 gsheetsdb
 gspread
+oauth2client.service_account
