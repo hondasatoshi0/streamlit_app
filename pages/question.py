@@ -45,7 +45,7 @@ if st.session_state.page == 'page1':
     with cols[0]:
       st.title("依頼書フォーム")
     with cols[1]:
-      st.write(f"現在日時：{datetime.datetime.now().strftime("%Y/%m/%d %H:%M:%S")}")
+      st.write(f"現在日時：{datetime.datetime.now(pytz.timezone('Asia/Tokyo')).strftime("%Y/%m/%d %H:%M:%S")}")
 
     # 注釈
     st.caption("*必須の質問")
