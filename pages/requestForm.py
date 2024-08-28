@@ -61,7 +61,7 @@ if st.session_state.page == 'page1':
     st.caption("*必須の質問")
 
     # 部署
-    st.session_state.section = st.selectbox("所属部署*", ["製造１課","製造２課","製造３課","エンジニアリング部","押出課","その他"], index = None, placeholder = "所属部署を選択してください。")
+    st.session_state.section = st.selectbox("所属部署*", ["製造１課","製造２課","製造３課","エンジニアリング課","押出課","その他"], index = None, placeholder = "所属部署を選択してください。")
     
     # 氏名
     name = st.text_input("氏名*")
