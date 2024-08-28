@@ -144,7 +144,7 @@ elif st.session_state.page == 'page2':
                 st.session_state.request_detail2,
                 st.session_state.request_detail3,
                 st.session_state.d,
-                st.session_state.check,
+                st.session_state.check
     ]
 
     worksheet.append_row(new_data)
