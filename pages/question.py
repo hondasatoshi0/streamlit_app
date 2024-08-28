@@ -1,30 +1,7 @@
 import streamlit as st
 import datetime
 import time
-import pyodbc
 import re
-
-# vsc 追加
-# 接続文字列を設定    
-conn_str = ("DRIVER={SQL Server};SERVER=192.168.1.5\\SQLEXPRESS;uid=sa;pwd=taiyo3553;DATABASE=IoTtest;")
-
-# 接続を作成
-conn = pyodbc.connect(conn_str)
-
-# カーソルを作成
-cursor = conn.cursor()
-
-# クエリを実行
-cursor.execute('SELECT * FROM T_設備機械課員')
-
-# 結果を取得
-rows = cursor.fetchall()
-
-for row in rows:
-    st.write(f"{row}")
-
-# 接続を閉じる
-conn.close()
 
 # 初期値設定
 if 'section' not in st.session_state:
