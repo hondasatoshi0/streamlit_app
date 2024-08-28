@@ -3,7 +3,7 @@ import datetime
 import time
 import pyodbc
 
-
+# 変更
 
 class SQLServer:
     def __init__(self):
