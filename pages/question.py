@@ -9,14 +9,14 @@ import pyodbc
 conn_str = (
     "DRIVER={ODBC Driver 17 for SQL Server}"
     + ";SERVER="
-    + f"{st.secrets['SQLSERVER']['SERVER']}"
+    + f"{st.secrets['SQLSERVER']['SERVER']},1433"
     + ";uid="
     + f"{st.secrets['SQLSERVER']['UID']}"
     + ";pwd="
     + f"{st.secrets['SQLSERVER']['PWD']}"
     + ";DATABASE="
     + f"{st.secrets['SQLSERVER']['DATABASE']}"
-    + ";"
+    + ";Connection Timeout=30;"
 )
 # 接続を作成
 conn = pyodbc.connect(conn_str)
