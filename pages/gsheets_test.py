@@ -5,11 +5,11 @@ import pandas as pd
 
 # Google Sheets APIにアクセスするための認証情報を設定
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-creds = ServiceAccountCredentials.from_json_keyfile_name("path_to_your_json_file.json", scope)
+creds = ServiceAccountCredentials.from_json_keyfile_name("conf/client.json", scope)
 client = gspread.authorize(creds)
 
 # スプレッドシートにアクセス
-spreadsheet = client.open("Your Spreadsheet Name")  # スプレッドシートの名前を指定
+spreadsheet = client.open("Sheet1")  # スプレッドシートの名前を指定
 worksheet = spreadsheet.get_worksheet(0)  # 最初のワークシートを取得
 
 # データを取得してDataFrameに変換
