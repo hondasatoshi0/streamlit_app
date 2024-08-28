@@ -6,7 +6,7 @@ import configparser
 
 st.title("依頼一覧")
 
-st.write('フィルター機能')
+st.write('### フィルター機能')
 # 部署リスト取得
 config = configparser.ConfigParser()
 config.read('conf/settings.ini')
