@@ -2,6 +2,7 @@ import streamlit as st
 import datetime
 import time
 import re
+import pyodbc
 
 # vsc 追加
 # 接続文字列を設定    
