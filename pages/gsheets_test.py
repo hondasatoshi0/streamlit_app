@@ -9,7 +9,7 @@ creds = ServiceAccountCredentials.from_json_keyfile_name("conf/client.json", sco
 client = gspread.authorize(creds)
 
 # スプレッドシートにアクセス
-spreadsheet = client.open("Sheet1")  # スプレッドシートの名前を指定
+spreadsheet = client.open("Streamlitテスト用")  # スプレッドシートの名前を指定
 worksheet = spreadsheet.get_worksheet(0)  # 最初のワークシートを取得
 
 # データを取得してDataFrameに変換
