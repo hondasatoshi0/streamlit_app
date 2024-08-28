@@ -52,5 +52,7 @@ data = worksheet.get_all_records()
 data_filter = list(filter(lambda x : x["所属部署"] in section_select, data))
 
 df = pd.DataFrame(data_filter)
+
 # Streamlitでデータを表示
+st.write("### 依頼一覧表")
 st.write(df)
