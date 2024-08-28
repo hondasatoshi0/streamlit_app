@@ -16,9 +16,9 @@ try:
 except KeyError:
     pass
 
-st.write("section_list")
+st.write(section_list)
 
-st.write('# ソート機能')
+st.write('ソート機能')
 section_select = st.multiselect(
     '所属部署を選択',
     ["製造１課","製造２課","製造３課","エンジニアリング課","押出課","その他"],
