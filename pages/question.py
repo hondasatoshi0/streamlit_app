@@ -147,14 +147,6 @@ elif st.session_state.page == 'page2':
                 st.session_state.check
     ]
 
-        # データがリスト形式であることを確認
-    if isinstance(new_data, list):
-        worksheet.append_row(new_data)
-    else:
-        st.error("追加するデータはリスト形式でなければなりません。")
-    
-    st.write("データがスプレッドシートに書き込まれました。")
-
     st.write(f"依頼日時：{datetime.datetime.now(pytz.timezone('Asia/Tokyo')).strftime("%Y/%m/%d %H:%M:%S")}")
     st.write(f"所属部署：{st.session_state.section}")
     st.write(f"氏名：{st.session_state.name}")
@@ -165,6 +157,14 @@ elif st.session_state.page == 'page2':
     st.write(f"そのほかの注意事項内容又は要望：{st.session_state.request_detail3}")
     st.write(f"希望納期：{st.session_state.d}")
     st.write(f"緊急性：{st.session_state.check}")
+
+    # データがリスト形式であることを確認
+    if isinstance(new_data, list):
+        worksheet.append_row(new_data)
+    else:
+        st.error("追加するデータはリスト形式でなければなりません。")
+    
+    st.write("データがスプレッドシートに書き込まれました。")
     
     if st.button("別の回答を送信"):
         go_to_page('page1')
