@@ -7,11 +7,17 @@ import pyodbc
 # vsc 追加
 # 接続文字列を設定    
 conn_str = (
-    f"DRIVER={{{st.secrets['DRIVER']}}};"
-    f"SERVER={st.secrets['SERVER']};"
-    f"uid={st.secrets['UID']};"
-    f"pwd={st.secrets['PWD']};"
-    f"DATABASE={st.secrets['DATABASE']};"
+    "DRIVER={"
+    + f"{st.secrets['DRIVER']}"
+    + "};SERVER="
+    + f"{st.secrets['SERVER']}"
+    + ";uid="
+    + f"{st.secrets['UID']}"
+    + ";pwd="
+    + f"{st.secrets['PWD']}"
+    + ";DATABASE="
+    + f"{st.secrets['DATABASE']}"
+    + ";"
 )
 # 接続を作成
 conn = pyodbc.connect(conn_str)
