@@ -4,6 +4,11 @@ import time
 import pytz
 import re
 
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
+import pandas as pd
+
+
 # 初期値設定
 if 'section' not in st.session_state:
     st.session_state.section = ''
@@ -100,6 +105,52 @@ if st.session_state.page == 'page1':
 
 elif st.session_state.page == 'page2':
     st.title("回答を送信しました。")
+    
+    # 認証情報
+    credentials = {
+        "type": st.secrets["gcp_service_account"]["type"],
+        "project_id": st.secrets["gcp_service_account"]["project_id"],
+        "private_key_id": st.secrets["gcp_service_account"]["private_key_id"],
+        "private_key": st.secrets["gcp_service_account"]["private_key"],
+        "client_email": st.secrets["gcp_service_account"]["client_email"],
+        "client_id": st.secrets["gcp_service_account"]["client_id"],
+        "auth_uri": st.secrets["gcp_service_account"]["auth_uri"],
+        "token_uri": st.secrets["gcp_service_account"]["token_uri"],
+        "auth_provider_x509_cert_url": st.secrets["gcp_service_account"]["auth_provider_x509_cert_url"],
+        "client_x509_cert_url": st.secrets["gcp_service_account"]["client_x509_cert_url"]
+    }
+    
+    # 認証情報を使用してGoogle Sheets APIにアクセス
+    scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
+    creds = ServiceAccountCredentials.from_json_keyfile_dict(credentials, scope)
+    client = gspread.authorize(creds)
+    
+    # スプレッドシートにアクセス
+    spreadsheet = client.open_by_url("https://docs.google.com/spreadsheets/d/15-5s3LOdSheVRPsrhhfeYdfC-QLi7TQVXhYdwbSu-oc/edit?usp=sharing")  # スプレッドシートの名前を指定
+    worksheet = spreadsheet.get_worksheet(0)  # 最初のワークシートを取得
+    
+    # データを取得してDataFrameに変換
+    data = worksheet.get_all_records()
+    df = pd.DataFrame(data)
+    
+    # Streamlitでデータを表示
+    # st.write(df)
+    
+    # データを書き込む
+    new_data = [st.session_state.section,
+                st.session_state.name,
+                st.session_state.request_detail1,
+                st.session_state.request_detail2,
+                st.session_state.request_detail3,
+                st.session_state.d,
+                st.session_state.check,
+                st.session_state.d
+    ]
+
+    worksheet.append_row(new_data)
+    
+    st.write("データがスプレッドシートに書き込まれました。")
+    
     st.write(f"所属部署：{st.session_state.section}")
     st.write(f"氏名：{st.session_state.name}")
     st.write(f"依頼内容：{st.session_state.request}")
