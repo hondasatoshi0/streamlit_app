@@ -3,3 +3,4 @@ shillelagh
 gsheetsdb
 gspread
 oauth2client
+configparser
