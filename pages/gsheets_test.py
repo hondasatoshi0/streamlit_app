@@ -1,4 +1,4 @@
-import shillelagh
+import streamlit as st
 import gsheetsdb
 import pandas as pd
 
