@@ -41,7 +41,7 @@ data = worksheet.get_all_records()
 st.write(data)
 
 # 抽出実行「所属部署」
-data_filter = list(filter(lambda x : x[1] in section_select, data))
+data_filter = list(filter(lambda x : x["所属部署"] in section_select, data))
 
 df = pd.DataFrame(data_filter)
 # Streamlitでデータを表示
