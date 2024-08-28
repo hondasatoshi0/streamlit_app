@@ -39,5 +39,8 @@ worksheet = spreadsheet.get_worksheet(0)  # 最初のワークシートを取得
 data = worksheet.get_all_records()
 df = pd.DataFrame(data)
 
+# 抽出実行「所属部署」
+df_filter = list(filter(lambda x : x[1] in section_select))
+
 # Streamlitでデータを表示
 st.write(df)
