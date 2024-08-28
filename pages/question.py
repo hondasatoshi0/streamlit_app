@@ -126,31 +126,32 @@ elif st.session_state.page == 'page2':
     client = gspread.authorize(creds)
     
     # スプレッドシートにアクセス
-    spreadsheet = client.open_by_url("https://docs.google.com/spreadsheets/d/15-5s3LOdSheVRPsrhhfeYdfC-QLi7TQVXhYdwbSu-oc/edit?usp=sharing")  # スプレッドシートの名前を指定
+    spreadsheet = client.open_by_url("https://docs.google.com/spreadsheets/d/15-5s3LOdSheVRPsrhhfeYdfC-QLi7TQVXhYdwbSu-oc/edit?usp=sharing")  # スプレッドシートのURL
     worksheet = spreadsheet.get_worksheet(0)  # 最初のワークシートを取得
     
     # データを取得してDataFrameに変換
-    data = worksheet.get_all_records()
-    df = pd.DataFrame(data)
+    # data = worksheet.get_all_records()
+    # df = pd.DataFrame(data)
     
     # Streamlitでデータを表示
     # st.write(df)
     
     # データを書き込む
-    new_data = [st.session_state.section,
+    new_data = [datetime.datetime.now(pytz.timezone('Asia/Tokyo')).strftime("%Y/%m/%d %H:%M:%S"),
+                st.session_state.section,
                 st.session_state.name,
                 st.session_state.request_detail1,
                 st.session_state.request_detail2,
                 st.session_state.request_detail3,
                 st.session_state.d,
                 st.session_state.check,
-                st.session_state.d
     ]
 
     worksheet.append_row(new_data)
     
     st.write("データがスプレッドシートに書き込まれました。")
-    
+
+    st.write(f"依頼日時：{datetime.datetime.now(pytz.timezone('Asia/Tokyo')).strftime("%Y/%m/%d %H:%M:%S")}")
     st.write(f"所属部署：{st.session_state.section}")
     st.write(f"氏名：{st.session_state.name}")
     st.write(f"依頼内容：{st.session_state.request}")
