@@ -5,6 +5,14 @@ import pandas as pd
 
 st.title("依頼一覧")
 
+
+st.write('# ソート機能')
+section_select = st.multiselect(
+    '所属部署を選択',
+    [""]
+    
+)
+
 credentials = {
     "type": st.secrets["gcp_service_account"]["type"],
     "project_id": st.secrets["gcp_service_account"]["project_id"],
