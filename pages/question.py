@@ -5,7 +5,13 @@ import re
 
 # vsc 追加
 # 接続文字列を設定    
-conn_str =　("DRIVER={" + f"{st.secrets["DRIVER"]}" + f"};SERVER={st.secrets["SERVER"]};uid={st.secrets["UID"]};pwd={st.secrets["PWD"]};DATABASE={st.secrets["DATABASE"]};")
+conn_str = (
+    f"DRIVER={{{st.secrets['DRIVER']}}};"
+    f"SERVER={st.secrets['SERVER']};"
+    f"uid={st.secrets['UID']};"
+    f"pwd={st.secrets['PWD']};"
+    f"DATABASE={st.secrets['DATABASE']};"
+)
 # 接続を作成
 conn = pyodbc.connect(conn_str)
 # カーソルを作成
