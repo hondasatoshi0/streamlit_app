@@ -37,10 +37,11 @@ worksheet = spreadsheet.get_worksheet(0)  # 最初のワークシートを取得
 
 # データを取得してDataFrameに変換
 data = worksheet.get_all_records()
-df = pd.DataFrame(data)
+
 
 # 抽出実行「所属部署」
-df_filter = list(filter(lambda x : x[1] in list(section_select), df))
+data_filter = list(filter(lambda x : x[1] in section_select, data))
 
+df = pd.DataFrame(data_filter)
 # Streamlitでデータを表示
-st.write(df_filter)
+st.write(df)
