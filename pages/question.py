@@ -135,11 +135,19 @@ elif st.session_state.page == 'page2':
     
     # Streamlitでデータを表示
     # st.write(df)
+
+    # 書き込み用にデータを整形
+    if st.session_state.uploaded_file is None:
+        st.session_state.uploaded_file = ""
+    if st.session_state.check is True:
+        st.session_state.check = "はい"
     
     # データを書き込む
     new_data = [datetime.datetime.now(pytz.timezone('Asia/Tokyo')).strftime("%Y/%m/%d %H:%M:%S"),
                 st.session_state.section,
                 st.session_state.name,
+                st.session_state.request,
+                st.session_state.uploaded_file,
                 st.session_state.request_detail1,
                 st.session_state.request_detail2,
                 st.session_state.request_detail3,
