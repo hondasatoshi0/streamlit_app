@@ -45,6 +45,10 @@ if st.session_state.page == 'page1':
 
     # 注釈
     st.caption("*必須の質問")
+
+    # 現在日時
+    st.write(f"{datetime.datetime.now()}")
+    
     
     # 部署
     st.session_state.section = st.selectbox("所属部署*", ["製造１課","製造２課","製造３課","エンジニアリング部","押出課","その他"], index = None, placeholder = "所属部署を選択してください。")
