@@ -7,9 +7,8 @@ import pyodbc
 # vsc 追加
 # 接続文字列を設定    
 conn_str = (
-    "DRIVER={"
-    + f"{st.secrets['DRIVER']}"
-    + "};SERVER="
+    "DRIVER={ODBC Driver 17 for SQL Server}"
+    + ";SERVER="
     + f"{st.secrets['SERVER']}"
     + ";uid="
     + f"{st.secrets['UID']}"
