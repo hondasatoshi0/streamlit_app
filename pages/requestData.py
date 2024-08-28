@@ -6,7 +6,8 @@ import configparser
 
 st.title("依頼一覧")
 
-# 設定情報取得
+st.write('フィルター機能')
+# 部署リスト取得
 config = configparser.ConfigParser()
 config.read('conf/settings.ini')
 section_list = []
@@ -16,13 +17,10 @@ try:
 except KeyError:
     pass
 
-st.write(section_list)
-
-st.write('ソート機能')
 section_select = st.multiselect(
     '所属部署を選択',
-    ["製造１課","製造２課","製造３課","エンジニアリング課","押出課","その他"],
-    ["製造１課","製造２課","製造３課","エンジニアリング課","押出課","その他"]
+    section_list,
+    section_list
 )
 
 credentials = {
