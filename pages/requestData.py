@@ -11,7 +11,7 @@ config = configparser.ConfigParser()
 config.read('conf/settings.ini')
 section_list = []
 for i in range(100):
-    section_list.append(config["section_list"]["section_{i}"])
+    section_list.append(config["section_list"][f"section_{i}"])
 
 st.write("section_list")
 
