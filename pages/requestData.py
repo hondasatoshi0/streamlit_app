@@ -11,9 +11,7 @@ config = configparser.ConfigParser()
 config.read('conf/settings.ini')
 section_list = []
 try:
-    for i in range(1,100):
-        st.write(i)
-        st.write(config["section_list"][f"section_{i}"])
+    for i in range(100):
         section_list.append(config["section_list"][f"section_{i}"])
 except KeyError:
     pass
