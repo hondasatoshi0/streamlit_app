@@ -97,20 +97,31 @@ try:
             st.write(df)
 
             #! 入力
+            st.write("## 入力")
             # 日付
             st.session_state.date = st.date_input("日時", value = datetime.datetime.now(pytz.timezone('Asia/Tokyo')), format ="YYYY/MM/DD")
-            # 投資金額
-            st.session_state.investment = st.number_input("投資金額",step=500)
-            # 回収金額
-            st.session_state.payback = st.number_input("回収金額",step=500)
-            # 差額
-            st.write("差額")
-            st.session_state.diff = int(st.session_state.payback) - (st.session_state.investment)
-            st.write(st.session_state.diff)
-            # カテゴリー
-            st.session_state.category = st.selectbox("カテゴリー", category_list, index = None, placeholder = "カテゴリーを選択してください。")
-            # 機種名
-            st.session_state.model_name = st.text_input("機種")
+            # 金額入力
+            cols = st.columns(3)
+            with cols[0]:
+                # 投資金額
+                st.session_state.investment = st.number_input("投資金額",step=500)
+            with cols[1]:
+                # 回収金額
+                st.session_state.payback = st.number_input("回収金額",step=500)
+            with cols[2]:
+                # 差額
+                st.write("差額")
+                st.session_state.diff = int(st.session_state.payback) - (st.session_state.investment)
+                st.write(st.session_state.diff)
+
+            cols2 = st.columns(2)
+            with cols2[0]:
+                # カテゴリー
+                st.session_state.category = st.selectbox("カテゴリー", category_list, index = None, placeholder = "カテゴリーを選択してください。")
+            with cols2[1]:
+                # 機種名
+                st.session_state.model_name = st.text_input("機種")
+
             # メモ
             st.session_state.memo = st.text_input("メモ")
 
