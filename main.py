@@ -37,6 +37,7 @@ else:
 
     # ページリンク
     st.write("### サンプル")
+    st.page_link("main.py", label="ホーム",icon="🏠")
     st.page_link("streamlit_sample.py", label="sample 1",icon="1⃣")
     st.page_link("streamlit_sample2.py", label="sample 2",icon="2⃣")
     st.page_link("requestForm.py", label="依頼書フォーム",icon="🌟")
