@@ -4,3 +4,4 @@ gsheetsdb
 gspread
 oauth2client
 configparser
+streamlit_authenticator
