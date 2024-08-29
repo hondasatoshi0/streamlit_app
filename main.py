@@ -17,9 +17,9 @@ if 'password' not in st.session_state:
 
 # ログインフォーム
 def show_login_form():
-    st.session_state.user_name = st.sidebar.text_input("ユーザー名")
-    st.session_state.password = st.sidebar.text_input("パスワード", type="password")
-    if st.sidebar.button('ログイン'):
+    st.session_state.user_name = st.text_input("ユーザー名")
+    st.session_state.password = st.text_input("パスワード", type="password")
+    if st.button('ログイン'):
         # 簡易的な認証処理
         if st.session_state.user_name == "admin" and st.session_state.password == "password":
             st.session_state['authenticated'] = True
@@ -44,5 +44,6 @@ else:
 
     with st.sidebar:
         st.text(f"Username:{st.session_state.user_name}")
+
     if st.sidebar.button("ログアウト"):
         st.session_state['authenticated'] = False
