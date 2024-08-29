@@ -14,7 +14,7 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 try:
-    if not st.session_state['authenticated']:
+    if not st.session_state['authenticated'] and not st.session_state.name == 'satoshi_honda':
         st.page_link("main.py",label="ログインページへ",icon="🏠")
     else:
         # サイドバー設定
