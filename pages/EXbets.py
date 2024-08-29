@@ -5,6 +5,7 @@ import pandas as pd
 import configparser
 import datetime
 import pytz
+import time
 
 # サイドバーにページリンクを非表示
 st.markdown("""
@@ -128,22 +129,7 @@ try:
             st.session_state.memo = st.text_input("メモ")
 
             if st.button("登録"):
-                # 依頼内容表示用
-                df = pd.DataFrame({
-                    "項目":["日付","投資金額","回収金額","差額","カテゴリー","機種","メモ"],
-                    "内容":[st.session_state.date,
-                            st.session_state.investment,
-                            st.session_state.payback,
-                            st.session_state.diff,
-                            st.session_state.category,
-                            st.session_state.model_name,
-                            st.session_state.memo],
-                })
-
-                # 依頼内容を表示
-                st.write(df)
-
-                # データ登録用
+                # データ登録
                 new_data = [st.session_state.date.strftime("%Y/%m/%d"),
                             int(st.session_state.investment),
                             int(st.session_state.payback),
@@ -153,11 +139,10 @@ try:
                             st.session_state.memo
                 ]
 
-                st.write(new_data)
                 # データ登録
                 worksheet.append_row(new_data)
                 st.success("登録完了")
-
+                time.sleep(2)
                 st.rerun()
 
 except KeyError:
