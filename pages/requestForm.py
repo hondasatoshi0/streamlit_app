@@ -78,7 +78,8 @@ try:
 
             # 部署
             st.session_state.section = st.selectbox("所属部署*", ["製造１課","製造２課","製造３課","エンジニアリング課","押出課","その他"], index = None, placeholder = "所属部署を選択してください。")
-
+            if st.session_state.section is None:
+                st.error("【エラー】所属部署を選択してください。")
             # 氏名
             name = st.text_input("氏名*")
             st.session_state.name = name.replace(' ','').replace('　','')
