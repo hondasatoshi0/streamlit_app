@@ -42,6 +42,6 @@ else:
     st.page_link("pages/requestForm.py", label="依頼書フォーム",icon="🌟")
     st.page_link("pages/requestData.py", label="依頼一覧",icon="🌟")
 
-    st.sidebar.text = f"Username:{st.session_state.user_name}"
+    st.sidebar.text(f"Username:{st.session_state.user_name}")
     if st.sidebar.button("ログアウト"):
         st.session_state['authenticated'] = False
