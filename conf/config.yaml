@@ -4,3 +4,9 @@ cookie:
   name: some_cookie_name
 credentials:
   usernames:
+    A12345:
+      name: JohnDoe
+      password: test
+    B23456:
+      name: AliceSmith
+      password: test
