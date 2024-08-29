@@ -184,6 +184,7 @@ try:
                 st.success("登録完了")
 
                 if st.button("戻る"):
+                    st.session_state.firstLoop = True
                     go_to_page('page1')
                     st.rerun()
 
