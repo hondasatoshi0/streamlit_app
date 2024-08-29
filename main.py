@@ -35,3 +35,6 @@ else:
     st.page_link("pages/streamlit_sample2.py", label="sample 2",icon="2⃣")
     st.page_link("pages/requestForm.py", label="依頼書フォーム",icon="🌟")
     st.page_link("pages/requestData.py", label="依頼一覧",icon="🌟")
+
+    if st.sidebar.button("ログアウト"):
+        st.session_state['authenticated'] = False
