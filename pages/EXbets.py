@@ -98,7 +98,7 @@ try:
 
             #! 入力
             # 日付
-            st.session_state.date = st.date_input("日時", value = datetime.datetime.now(pytz.timezone('Asia/Tokyo')).strftime("%Y/%m/%d"), format ="YYYY/MM/DD")
+            st.session_state.date = st.date_input("日時", value = datetime.datetime.now(pytz.timezone('Asia/Tokyo')), format ="YYYY/MM/DD")
             # 投資金額
             st.session_state.investment = st.number_input("投資金額",step=500)
             # 回収金額
