@@ -25,7 +25,7 @@ try:
 
         st.write('### フィルター機能')
         # 区分リスト取得
-        spec_list = ["319","349"]
+        spec_list = [319,349]
 
         spec_select = st.multiselect(
             '区分を選択',
