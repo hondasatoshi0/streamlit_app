@@ -16,7 +16,7 @@ st.page_link("pages/requestForm.py", label="依頼書フォーム",icon="🌟")
 st.page_link("pages/requestData.py", label="依頼一覧",icon="🌟")
 
 ## ユーザー設定読み込み
-yaml_path = "config.yaml"
+yaml_path = "conf/config.yaml"
 
 with open(yaml_path) as file:
     config = yaml.load(file, Loader=SafeLoader)
