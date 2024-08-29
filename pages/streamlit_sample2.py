@@ -14,6 +14,10 @@ try:
   if not st.session_state['authenticated']:
     st.page_link("main.py",label="ログインページへ",icon="🏠")
   else:
+    # サイドバー設定
+    st.sidebar.page_link("main.py", label="ホーム",icon="🏠")
+
+    #! メイン
     st.write("# Streamlit sample2")
 
     # 緯度経度データ（10進数）
@@ -33,9 +37,5 @@ try:
     for i in range(0,100):
       time.sleep(0.1)
       my_bar.progress(i+1)
-
-    # サイドバー設定
-    st.sidebar.page_link("main.py", label="ホーム",icon="🏠")
-
 except KeyError:
   st.page_link("main.py",label="ログインページへ",icon="🏠")

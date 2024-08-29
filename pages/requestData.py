@@ -17,6 +17,9 @@ try:
     if not st.session_state['authenticated']:
         st.page_link("main.py",label="ログインページへ",icon="🏠")
     else:
+        # サイドバー設定
+        st.sidebar.page_link("main.py", label="ホーム",icon="🏠")
+
         #! メイン
         st.title("依頼一覧")
 
@@ -70,9 +73,6 @@ try:
         # Streamlitでデータを表示
         st.write("### 依頼一覧表")
         st.write(df)
-
-        # サイドバー設定
-        st.sidebar.page_link("main.py", label="ホーム",icon="🏠")
 
 except KeyError:
     st.page_link("main.py",label="ログインページへ",icon="🏠")

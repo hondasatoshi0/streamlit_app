@@ -15,6 +15,11 @@ try:
   if not st.session_state['authenticated']:
     st.page_link("main.py",label="ログインページへ",icon="🏠")
   else:
+
+    # サイドバー設定
+    st.sidebar.page_link("main.py", label="ホーム",icon="🏠")
+
+    #! メイン
     ### 表示系
     # テキスト（マークダウンで書ける）
     st.write("# tilte")
@@ -119,7 +124,5 @@ try:
 
     st.write(f"count:{st.session_state.count}")
 
-    # サイドバー設定
-    st.sidebar.page_link("main.py", label="ホーム",icon="🏠")
 except KeyError:
   st.page_link("main.py",label="ログインページへ",icon="🏠")

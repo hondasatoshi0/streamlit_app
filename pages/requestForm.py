@@ -21,6 +21,9 @@ try:
     if not st.session_state['authenticated']:
         st.page_link("main.py",label="ログインページへ",icon="🏠")
     else:
+        # サイドバー設定
+        st.sidebar.page_link("main.py", label="ホーム",icon="🏠")
+
         #! メイン
         # 初期値設定
         if 'section' not in st.session_state:
@@ -203,9 +206,6 @@ try:
                     st.session_state.sent = 0
                     go_to_page('page1')
                     st.rerun()
-
-        # サイドバー設定
-        st.sidebar.page_link("main.py", label="ホーム",icon="🏠")
 
 except KeyError:
     st.page_link("main.py",label="ログインページへ",icon="🏠")
