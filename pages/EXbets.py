@@ -3,6 +3,8 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import pandas as pd
 import configparser
+import datetime
+import pytz
 
 # サイドバーにページリンクを非表示
 st.markdown("""
@@ -12,6 +14,29 @@ st.markdown("""
     }
     </style>
     """, unsafe_allow_html=True)
+
+# 初期値設定
+if 'date' not in st.session_state:
+    st.session_state.date = ''
+
+if 'investment' not in st.session_state:
+    st.session_state.investment = 0
+
+if 'payback' not in st.session_state:
+    st.session_state.payback = 0
+
+if 'diff' not in st.session_state:
+    st.session_state.diff = 0
+
+if 'category' not in st.session_state:
+    st.session_state.category = ''
+
+if 'model_name' not in st.session_state:
+    st.session_state.model_name = ''
+
+if 'memo' not in st.session_state:
+    st.session_state.memo = ''
+
 
 try:
     if not st.session_state['authenticated']:
@@ -28,11 +53,11 @@ try:
             st.title("ギャンブル収支")
 
             st.write('### フィルター機能')
-            # 区分リスト取得
+            # カテゴリーリスト取得
             category_list = ["麻雀","パチンコ","スロット"]
 
             category_select = st.multiselect(
-                '区分を選択',
+                'カテゴリーを選択',
                 category_list,
                 category_list
             )
@@ -63,13 +88,59 @@ try:
             data = worksheet.get_all_records()
 
             # 抽出実行「所属部署」
-            data_filter = list(filter(lambda x : x["種別"] in category_select, data))
+            data_filter = list(filter(lambda x : x["カテゴリー"] in category_select, data))
 
             df = pd.DataFrame(data_filter)
 
             # Streamlitでデータを表示
             st.write("### ギャンブル収支表")
             st.write(df)
+
+            #! 入力
+            # 日付
+            st.session_state.date = st.date_input("日時", value = datetime.datetime.now(pytz.timezone('Asia/Tokyo')).strftime("%Y/%m/%d"), format ="YYYY/MM/DD")
+            # 投資金額
+            st.session_state.investment = st.number_input("投資金額",step=500)
+            # 回収金額
+            st.session_state.payback = st.number_input("回収金額",step=500)
+            # 差額
+            st.write("差額")
+            st.session_state.diff = int(st.session_state.payback) - (st.session_state.investment)
+            st.write(st.session_state.diff)
+            # カテゴリー
+            st.session_state.category = st.selectbox("カテゴリー", category_list, index = None, placeholder = "カテゴリーを選択してください。")
+            # 機種名
+            st.session_state.model_name = st.text_input("機種")
+            # メモ
+            st.session_state.memo = st.text_input("メモ")
+
+            if st.button("送信"):
+                # データを書き込む
+                new_data = [st.session_state.date,
+                            st.session_state.investment,
+                            st.session_state.payback,
+                            st.session_state.diff,
+                            st.session_state.category,
+                            st.session_state.model_name,
+                            st.session_state.memo
+                ]
+
+                df = pd.DataFrame({
+                    "項目":["日付","投資金額","回収金額","差額","カテゴリー","機種","メモ"],
+                    "内容":[st.session_state.date,
+                            st.session_state.investment,
+                            st.session_state.payback,
+                            st.session_state.diff,
+                            st.session_state.category,
+                            st.session_state.model_name,
+                            st.session_state.memo],
+                })
+
+                # 依頼内容を表示
+                st.write(df)
+                # データ書き込み
+                worksheet.append_row(new_data)
+                st.rerun()
 
 except KeyError:
     st.page_link("main.py",label="ログインページへ",icon="🏠")
