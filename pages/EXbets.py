@@ -113,12 +113,8 @@ try:
             with cols[2]:
                 # 差額
                 st.write("差額")
-                diff = int(st.session_state.payback) - (st.session_state.investment)
-                if diff < 0:
-                    st.session_state.diff = f'<span style="color:red">{diff}</span>'
-                else:
-                    st.session_state.diff = f'<span style="color:green">{diff}</span>'
-                st.write(st.session_state.diff, unsafe_allow_html=True)
+                st.session_state.diff = int(st.session_state.payback) - (st.session_state.investment)
+                st.write(st.session_state.diff)
 
             cols2 = st.columns(2)
             with cols2[0]:
