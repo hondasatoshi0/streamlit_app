@@ -66,7 +66,7 @@ try:
             category_list = ["麻雀","パチンコ","スロット"]
 
             if st.session_state.page == 'page1':
-                if st.session_state.firstLoop:
+                if st.session_state.firstLoop == True:
                     # フィルター
                     st.write('### フィルター機能')
                     category_select = st.multiselect(
