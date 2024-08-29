@@ -92,10 +92,10 @@ try:
 
                     # スプレッドシートにアクセス
                     spreadsheet = client.open_by_url("https://docs.google.com/spreadsheets/d/1r-g-Khzwjcc-SS0CRtXWj5Ljx4u3YAfRRUR-LjRtwbA/edit?usp=sharing")  # スプレッドシートの名前を指定
-                    worksheet = spreadsheet.get_worksheet(0)  # 最初のワークシートを取得
+                    st.session_state.worksheet = spreadsheet.get_worksheet(0)  # 最初のワークシートを取得
 
                     # データを取得してDataFrameに変換
-                    data = worksheet.get_all_records()
+                    data = st.session_state.worksheet.get_all_records()
 
                     # 抽出実行「所属部署」
                     data_filter = list(filter(lambda x : x["カテゴリー"] in category_select, data))
@@ -149,7 +149,7 @@ try:
                     ]
 
                     # データ登録
-                    worksheet.append_row(new_data)
+                    st.session_state.worksheet.append_row(new_data)
                     go_to_page('page2')
                     st.rerun()
 
