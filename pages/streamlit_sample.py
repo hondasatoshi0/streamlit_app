@@ -13,9 +13,7 @@ st.markdown("""
 
 st.sidebar.page_link("main.py", label="ホーム",icon="🏠")
 
-if 'authenticated' not in st.session_state:
-  st.page_link("main.py","ログインページへ",icon="🏠")
-else:
+try:
   if not st.session_state['authenticated']:
     st.page_link("main.py","ログインページへ",icon="🏠")
   else:
@@ -122,3 +120,7 @@ else:
       st.session_state.count += 1
 
     st.write(f"count:{st.session_state.count}")
+except KeyError:
+  st.page_link("main.py","ログインページへ",icon="🏠")
+except TypeError:
+  st.page_link("main.py","ログインページへ",icon="🏠")
