@@ -59,12 +59,13 @@ try:
             #! メイン
             st.title("ギャンブル収支")
 
+            # カテゴリーリスト設定
+            category_list = ["麻雀","パチンコ","スロット"]
+
             if st.session_state.page == 'page1':
                 if st.button("取得"):
+                    # フィルター
                     st.write('### フィルター機能')
-                    # カテゴリーリスト取得
-                    category_list = ["麻雀","パチンコ","スロット"]
-
                     category_select = st.multiselect(
                         'カテゴリーを選択',
                         category_list,
