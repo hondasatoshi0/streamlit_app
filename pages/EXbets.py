@@ -144,7 +144,7 @@ try:
                 st.write(df)
 
                 # データ登録用
-                new_data = [st.session_state.date,
+                new_data = [st.session_state.date.strftime("%Y/%m/%d"),
                             int(st.session_state.investment),
                             int(st.session_state.payback),
                             int(st.session_state.diff),
