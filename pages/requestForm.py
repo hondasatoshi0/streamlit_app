@@ -94,12 +94,12 @@ try:
             # 氏名
             name = st.text_input("氏名*", placeholder = "例）大洋 アモス")
             st.session_state.name = name.replace(' ','').replace('　','')
-            if st.session_state.name is None or st.session_state.name == "":
+            if st.session_state.name is None:
                 st.error("※氏名を入力してください。")
 
             # 依頼内容
-            st.session_state.request = st.text_input("依頼内容（最大200文字）*", max_chars = 200)
-            if st.session_state.request is None or st.session_state.request == "":
+            st.session_state.request = st.text_input("依頼内容（最大200文字）*", max_chars = 200, placeholder = "...")
+            if st.session_state.request is None:
                 st.error("※依頼内容を入力してください。")
 
             # ファイルアップロード
@@ -127,17 +127,17 @@ try:
             if st.button("送信"):
                 if st.session_state.sent == 0:
                     if st.session_state.section is not None \
-                        and st.session_state.name is not None and not st.session_state.name == "" \
-                            and st.session_state.request is not None and not st.session_state.request == "" \
+                        and st.session_state.name is not None \
+                            and st.session_state.request is not None \
                                 and st.session_state.d is not None:
                         go_to_page('page2')
                         st.rerun()
                     else:
                         if st.session_state.section is None:
                             st.error("【エラー】所属部署を選択してください。")
-                        if st.session_state.name is None or st.session_state.name == "":
+                        if st.session_state.name is None:
                             st.error("【エラー】氏名を入力してください。")
-                        if st.session_state.request is None or st.session_state.request == "":
+                        if st.session_state.request is None:
                             st.error("【エラー】依頼内容を入力してください。")
                         if st.session_state.d is None:
                             st.error("【エラー】希望納期を選択してください。")
