@@ -15,9 +15,7 @@ st.markdown("""
 
 st.sidebar.page_link("main.py", label="ホーム",icon="🏠")
 
-with st.sidebar:
-    st.text(f"Username:{st.session_state.user_name}")
-
+#! メイン
 st.title("依頼一覧")
 
 st.write('### フィルター機能')

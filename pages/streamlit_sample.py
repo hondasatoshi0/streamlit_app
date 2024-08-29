@@ -13,9 +13,7 @@ st.markdown("""
 
 st.sidebar.page_link("main.py", label="ホーム",icon="🏠")
 
-with st.sidebar:
-    st.text(f"Username:{st.session_state.user_name}")
-
+#! メイン
 ### 表示系
 # テキスト（マークダウンで書ける）
 st.write("# tilte")
