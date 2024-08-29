@@ -88,19 +88,13 @@ try:
 
             # 部署
             st.session_state.section = st.selectbox("所属部署*", section_list, index = None, placeholder = "所属部署を選択してください。")
-            if st.session_state.section is None:
-                st.error("※所属部署を選択してください。")
 
             # 氏名
             name = st.text_input("氏名*")
             st.session_state.name = name.replace(' ','').replace('　','')
-            if st.session_state.name is None or st.session_state.name == "":
-                st.error("※氏名を入力してください。")
 
             # 依頼内容
             st.session_state.request = st.text_input("依頼内容（最大200文字）*", max_chars = 200)
-            if st.session_state.request is None or st.session_state.request == "":
-                st.error("※依頼内容を入力してください。")
 
             # ファイルアップロード
             st.session_state.uploaded_file = st.file_uploader("写真や資料があればこちらからアップロードしてください。（１つまで）")
@@ -116,8 +110,6 @@ try:
 
             # 希望納期
             st.session_state.d = st.date_input("希望納期*", value = None, format ="YYYY/MM/DD")
-            if st.session_state.d is None:
-                st.error("※希望納期を選択してください。")
 
             # 緊急性
             st.write("緊急ですか？")
