@@ -22,8 +22,6 @@ st.sidebar.page_link("main.py", label="ホーム",icon="🏠")
 with st.sidebar:
     st.text(f"Username:{st.session_state.user_name}")
 
-if st.sidebar.button("ログアウト"):
-    st.session_state['authenticated'] = False
 
 # 初期値設定
 if 'section' not in st.session_state:

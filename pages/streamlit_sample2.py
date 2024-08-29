@@ -10,6 +10,11 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
+st.sidebar.page_link("main.py", label="ホーム",icon="🏠")
+
+with st.sidebar:
+    st.text(f"Username:{st.session_state.user_name}")
+
 st.write("# Streamlit sample2")
 
 # 緯度経度データ（10進数）

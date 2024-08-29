@@ -42,7 +42,7 @@ if not st.session_state['authenticated']:
 
 else:
     # ページタイトルとページアイコン
-    st.title("Streamlit main")
+    st.title("ホーム🏠")
 
     # ページリンク
     st.write("### 依頼書")
