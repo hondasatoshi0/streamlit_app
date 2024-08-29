@@ -156,6 +156,7 @@ try:
                 st.write(new_data)
                 # データ登録
                 worksheet.append_row(new_data)
+                st.success("登録完了")
 
                 st.rerun()
 
