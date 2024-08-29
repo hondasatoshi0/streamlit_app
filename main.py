@@ -14,6 +14,7 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
+
 # 初期化
 if 'authenticated' not in st.session_state:
     st.session_state['authenticated'] = False
@@ -52,6 +53,16 @@ else:
     st.write("### サンプル")
     st.page_link("pages/streamlit_sample.py", label="サンプル１",icon="1⃣")
     st.page_link("pages/streamlit_sample2.py", label="サンプル２",icon="2⃣")
+
+    # サイドバー
+    st.sidebar.page_link("main.py", label="ホーム",icon="🏠")
+    st.sidebar.write("### 依頼書")
+    st.sidebar.page_link("pages/requestForm.py", label="依頼書フォーム",icon="🌟")
+    st.sidebar.page_link("pages/requestData.py", label="依頼一覧",icon="🌟")
+    st.sidebar.write("### サンプル")
+    st.sidebar.page_link("pages/streamlit_sample.py", label="サンプル１",icon="1⃣")
+    st.sidebar.page_link("pages/streamlit_sample2.py", label="サンプル２",icon="2⃣")
+
 
     with st.sidebar:
         st.text(f"Username:{st.session_state.user_name}")
