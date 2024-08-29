@@ -7,6 +7,7 @@ import re
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import pandas as pd
+import configparser
 
 # サイドバーにページリンクを非表示
 st.markdown("""
@@ -16,6 +17,15 @@ st.markdown("""
     }
     </style>
     """, unsafe_allow_html=True)
+
+config = configparser.ConfigParser()
+config.read('conf/settings.ini')
+section_list = []
+try:
+    for i in range(100):
+        section_list.append(config["section_list"][f"section_{i}"])
+except KeyError:
+    pass
 
 try:
     if not st.session_state['authenticated']:
@@ -77,15 +87,20 @@ try:
             st.caption("*必須の質問")
 
             # 部署
-            st.session_state.section = st.selectbox("所属部署*", ["製造１課","製造２課","製造３課","エンジニアリング課","押出課","その他"], index = None, placeholder = "所属部署を選択してください。")
+            st.session_state.section = st.selectbox("所属部署*", section_list, index = None, placeholder = "所属部署を選択してください。")
             if st.session_state.section is None:
-                st.error("【エラー】所属部署を選択してください。")
+                st.error("※所属部署を選択してください。")
+
             # 氏名
             name = st.text_input("氏名*")
             st.session_state.name = name.replace(' ','').replace('　','')
+            if st.session_state.name is None:
+                st.error("※氏名を入力してください。")
 
             # 依頼内容
             st.session_state.request = st.text_input("依頼内容（最大200文字）*", max_chars = 200)
+            if st.session_state.request is None:
+                st.error("※依頼内容を入力してください。")
 
             # ファイルアップロード
             st.session_state.uploaded_file = st.file_uploader("写真や資料があればこちらからアップロードしてください。（１つまで）")
@@ -101,6 +116,8 @@ try:
 
             # 希望納期
             st.session_state.d = st.date_input("希望納期*", value = None, format ="YYYY/MM/DD")
+            if st.session_state.d is None:
+                st.error("※希望納期を選択してください。")
 
             # 緊急性
             st.write("緊急ですか？")
