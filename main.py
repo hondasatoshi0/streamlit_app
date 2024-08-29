@@ -69,3 +69,4 @@ else:
 
     if st.sidebar.button("ログアウト"):
         st.session_state['authenticated'] = False
+        st.rerun()
