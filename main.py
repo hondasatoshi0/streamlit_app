@@ -37,11 +37,16 @@ else:
 
     # ページリンク
     st.write("### サンプル")
+    if st.button("sample 1"):
+        st.switch_page("modules/streamlit_sample.py")
+
+    """
     st.page_link("main.py", label="ホーム",icon="🏠")
     st.page_link("pages/streamlit_sample.py", label="sample 1",icon="1⃣")
     st.page_link("pages/streamlit_sample2.py", label="sample 2",icon="2⃣")
     st.page_link("pages/requestForm.py", label="依頼書フォーム",icon="🌟")
     st.page_link("pages/requestData.py", label="依頼一覧",icon="🌟")
+    """
 
     with st.sidebar:
         st.text(f"Username:{st.session_state.user_name}")
