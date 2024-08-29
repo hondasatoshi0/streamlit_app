@@ -17,8 +17,6 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-st.sidebar.page_link("main.py", label="ホーム",icon="🏠")
-
 try:
     if not st.session_state['authenticated']:
         st.page_link("main.py",label="ログインページへ",icon="🏠")
@@ -205,6 +203,9 @@ try:
                     st.session_state.sent = 0
                     go_to_page('page1')
                     st.rerun()
+
+        # サイドバー設定
+        st.sidebar.page_link("main.py", label="ホーム",icon="🏠")
 
 except KeyError:
     st.page_link("main.py",label="ログインページへ",icon="🏠")

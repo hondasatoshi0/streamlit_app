@@ -10,8 +10,6 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-st.sidebar.page_link("main.py", label="ホーム",icon="🏠")
-
 try:
   if not st.session_state['authenticated']:
     st.page_link("main.py",label="ログインページへ",icon="🏠")
@@ -30,11 +28,14 @@ try:
     # 世界地図の表示
     st.map(pref_list,size=1)
 
-
     # プログレスバー
     my_bar = st.progress(0)
     for i in range(0,100):
       time.sleep(0.1)
       my_bar.progress(i+1)
+
+    # サイドバー設定
+    st.sidebar.page_link("main.py", label="ホーム",icon="🏠")
+
 except KeyError:
   st.page_link("main.py",label="ログインページへ",icon="🏠")
