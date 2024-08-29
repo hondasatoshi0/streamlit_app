@@ -92,14 +92,14 @@ try:
                 st.error("※所属部署を選択してください。")
 
             # 氏名
-            name = st.text_input("氏名*")
+            name = st.text_input("氏名*", placeholder = "例）大洋 アモス")
             st.session_state.name = name.replace(' ','').replace('　','')
-            if st.session_state.name is None:
+            if st.session_state.name is None or st.session_state.name == "":
                 st.error("※氏名を入力してください。")
 
             # 依頼内容
             st.session_state.request = st.text_input("依頼内容（最大200文字）*", max_chars = 200)
-            if st.session_state.request is None:
+            if st.session_state.request is None or st.session_state.request == "":
                 st.error("※依頼内容を入力してください。")
 
             # ファイルアップロード
