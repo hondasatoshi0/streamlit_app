@@ -13,6 +13,8 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
+st.rerun()
+
 st.sidebar.page_link("main.py", label="ホーム",icon="🏠")
 
 #! メイン
