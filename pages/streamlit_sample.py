@@ -121,6 +121,6 @@ try:
 
     st.write(f"count:{st.session_state.count}")
 except KeyError:
-  st.page_link("main.py","ログインページへ",icon="🏠")
+  st.page_link("main.py",label="ログインページへ",icon="🏠")
 except TypeError:
-  st.page_link("main.py","ログインページへ",icon="🏠")
+  st.page_link("main.py",label="ログインページへ",icon="🏠")
