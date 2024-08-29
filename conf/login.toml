@@ -3,21 +3,21 @@ name = "admin"
 password = "password"
 
 [user_1]
-name = "admin"
-password = "password"
+name = "satoshi_honda"
+password = "taiyo3191"
 
 [user_2]
-name = "admin"
+name = "user000"
 password = "password"
 
 [user_3]
-name = "admin"
+name = "user001"
 password = "password"
 
 [user_4]
-name = "admin"
+name = "user002"
 password = "password"
 
 [user_5]
-name = "admin"
+name = "user003"
 password = "password"
