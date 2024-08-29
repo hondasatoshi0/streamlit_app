@@ -2,6 +2,15 @@ import streamlit as st
 import pandas as pd
 import time
 
+# サイドバーにページリンクを非表示
+st.markdown("""
+    <style>
+    [data-testid="stSidebarNav"] ul {
+        display: none;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
 ### 表示系
 # テキスト（マークダウンで書ける）
 st.write("# tilte")

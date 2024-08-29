@@ -8,6 +8,14 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import pandas as pd
 
+# サイドバーにページリンクを非表示
+st.markdown("""
+    <style>
+    [data-testid="stSidebarNav"] ul {
+        display: none;
+    }
+    </style>
+    """, unsafe_allow_html=True)
 
 # 初期値設定
 if 'section' not in st.session_state:

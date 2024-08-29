@@ -5,6 +5,7 @@ import streamlit_authenticator as stauth
 import yaml
 from yaml.loader import SafeLoader
 
+# サイドバーにページリンクを非表示
 st.markdown("""
     <style>
     [data-testid="stSidebarNav"] ul {

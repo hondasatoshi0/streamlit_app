@@ -1,6 +1,15 @@
 import streamlit as st
 import time
 
+# サイドバーにページリンクを非表示
+st.markdown("""
+    <style>
+    [data-testid="stSidebarNav"] ul {
+        display: none;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
 st.write("# Streamlit sample2")
 
 # 緯度経度データ（10進数）

@@ -4,6 +4,16 @@ from oauth2client.service_account import ServiceAccountCredentials
 import pandas as pd
 import configparser
 
+# サイドバーにページリンクを非表示
+st.markdown("""
+    <style>
+    [data-testid="stSidebarNav"] ul {
+        display: none;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+
 st.title("依頼一覧")
 
 st.write('### フィルター機能')
