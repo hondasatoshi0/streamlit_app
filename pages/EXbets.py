@@ -96,6 +96,8 @@ try:
             st.write("### ギャンブル収支表")
             st.write(df)
 
+            st.markdown("---") # 区切り線
+
             #! 入力
             st.write("## 入力")
             # 日付
@@ -112,7 +114,11 @@ try:
                 # 差額
                 st.write("差額")
                 st.session_state.diff = int(st.session_state.payback) - (st.session_state.investment)
-                st.write(st.session_state.diff)
+                if st.session_state.diff < 0:
+                    f'<span style="color:red">{st.session_state.diff}</span>'
+                else:
+                    f'<span style="color:green">{st.session_state.diff}</span>'
+                st.write(st.session_state.diff, unsafe_allow_html=True)
 
             cols2 = st.columns(2)
             with cols2[0]:
@@ -125,17 +131,8 @@ try:
             # メモ
             st.session_state.memo = st.text_input("メモ")
 
-            if st.button("送信"):
-                # データを書き込む
-                new_data = [st.session_state.date,
-                            int(st.session_state.investment),
-                            int(st.session_state.payback),
-                            int(st.session_state.diff),
-                            st.session_state.category,
-                            st.session_state.model_name,
-                            st.session_state.memo
-                ]
-
+            if st.button("登録"):
+                # 依頼内容表示用
                 df = pd.DataFrame({
                     "項目":["日付","投資金額","回収金額","差額","カテゴリー","機種","メモ"],
                     "内容":[st.session_state.date,
@@ -149,8 +146,20 @@ try:
 
                 # 依頼内容を表示
                 st.write(df)
-                # データ書き込み
+
+                # データ登録用
+                new_data = [st.session_state.date,
+                            int(st.session_state.investment),
+                            int(st.session_state.payback),
+                            int(st.session_state.diff),
+                            st.session_state.category,
+                            st.session_state.model_name,
+                            st.session_state.memo
+                ]
+
+                # データ登録
                 worksheet.append_row(new_data)
+
                 st.rerun()
 
 except KeyError:
