@@ -128,9 +128,9 @@ try:
             if st.button("送信"):
                 # データを書き込む
                 new_data = [st.session_state.date,
-                            st.session_state.investment,
-                            st.session_state.payback,
-                            st.session_state.diff,
+                            int(st.session_state.investment),
+                            int(st.session_state.payback),
+                            int(st.session_state.diff),
                             st.session_state.category,
                             st.session_state.model_name,
                             st.session_state.memo
