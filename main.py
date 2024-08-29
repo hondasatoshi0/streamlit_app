@@ -14,7 +14,7 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-
+#! メイン
 # 初期化
 if 'authenticated' not in st.session_state:
     st.session_state['authenticated'] = False
@@ -25,8 +25,8 @@ if 'user_name' not in st.session_state:
 if 'password' not in st.session_state:
     st.session_state.password = ""
 
-# ログインフォーム
-def show_login_form():
+# ログインしていない場合はログインフォームを表示
+if not st.session_state['authenticated']:
     st.session_state.user_name = st.text_input("ユーザー名")
     st.session_state.password = st.text_input("パスワード", type="password")
     if st.button('ログイン'):
@@ -36,11 +36,6 @@ def show_login_form():
             st.rerun()
         else:
             st.error("ユーザー名またはパスワードが間違っています。")
-
-# ログインしていない場合はログインフォームを表示
-if not st.session_state['authenticated']:
-    show_login_form()
-
 else:
     # ページタイトルとページアイコン
     st.title("ホーム🏠")
@@ -62,10 +57,6 @@ else:
     st.sidebar.write("### サンプル")
     st.sidebar.page_link("pages/streamlit_sample.py", label="サンプル１",icon="1⃣")
     st.sidebar.page_link("pages/streamlit_sample2.py", label="サンプル２",icon="2⃣")
-
-
-    with st.sidebar:
-        st.text(f"Username:{st.session_state.user_name}")
 
     if st.sidebar.button("ログアウト"):
         st.session_state['authenticated'] = False
