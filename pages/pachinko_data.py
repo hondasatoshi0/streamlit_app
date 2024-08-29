@@ -57,8 +57,9 @@ try:
 
         # データを取得してDataFrameに変換
         data = worksheet.get_all_records()
-
-        # 抽出実行「所属部署」
+        df = pd.DataFrame(data)
+        st.write(df)
+        # 抽出実行
         data_filter = list(filter(lambda x : x["スペック"] in spec_select, data))
 
         df = pd.DataFrame(data_filter)
