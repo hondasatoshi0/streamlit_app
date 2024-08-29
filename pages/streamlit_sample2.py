@@ -12,8 +12,12 @@ st.markdown("""
 
 st.sidebar.page_link("main.py", label="ホーム",icon="🏠")
 
-if 'authenticated' in st.session_state:
-  if st.session_state['authenticated']:
+if 'authenticated' not in st.session_state:
+  st.page_link("main.py","ログインページへ",icon="🏠")
+else:
+  if not st.session_state['authenticated']:
+    st.page_link("main.py","ログインページへ",icon="🏠")
+  else:
     st.write("# Streamlit sample2")
 
     # 緯度経度データ（10進数）
@@ -34,8 +38,3 @@ if 'authenticated' in st.session_state:
     for i in range(0,100):
       time.sleep(0.1)
       my_bar.progress(i+1)
-
-  else:
-    st.page_link("main.py","ログインページへ",icon="🏠")
-else:
-  st.page_link("main.py","ログインページへ",icon="🏠")
