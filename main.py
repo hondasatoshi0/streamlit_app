@@ -27,10 +27,14 @@ if not st.session_state['authenticated']:
     st.title('ログイン画面')
     st.session_state.user_name = st.text_input("ユーザー名")
     st.session_state.password = st.text_input("パスワード", type="password")
+    
+    with open('conf/login.toml') as f:
+        user_data = toml.load(f)
+    st.write(user_data)
+    
+    
     if st.button('ログイン'):
-        with open('conf/login.toml') as f:
-            user_data = toml.load(f)
-        st.write(user_data)
+
         # 簡易的な認証処理
         if st.session_state.user_name == "admin" and st.session_state.password == "password":
             st.session_state['authenticated'] = True
