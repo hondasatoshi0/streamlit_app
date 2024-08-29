@@ -17,13 +17,14 @@ def show_login_form():
         # 簡易的な認証処理
         if user_name == "admin" and password == "password":
             st.session_state['authenticated'] = True
-            st.success("ログイン成功！")
+            st.rerun()
         else:
             st.error("ユーザー名またはパスワードが間違っています。")
 
 # ログインしていない場合はログインフォームを表示
 if not st.session_state['authenticated']:
     show_login_form()
+
 else:
     # ページタイトルとページアイコン
     st.title("Streamlit main")
