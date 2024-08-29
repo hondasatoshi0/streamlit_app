@@ -19,7 +19,7 @@ st.markdown("""
 
 st.sidebar.page_link("main.py", label="ホーム",icon="🏠")
 
-if not st.session_state['authenticated']:
+if 'authenticated' not in st.session_state and not st.session_state['authenticated']:
     st.page_link("main.py","ログインページへ",icon="🏠")
 else:
     #! メイン
