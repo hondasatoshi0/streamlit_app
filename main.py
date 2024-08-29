@@ -53,6 +53,11 @@ else:
     st.page_link("pages/streamlit_sample.py", label="サンプル１",icon="1⃣")
     st.page_link("pages/streamlit_sample2.py", label="サンプル２",icon="2⃣")
 
+    st.write("### テスト")
+    st.page_link("pages/EXbets.py", label="ギャンブル収支",icon="💲")
+    st.page_link("pages/pachinko_data.py", label="パチンコ成績",icon="🎰")
+    st.page_link("pages/mahjong_data.py", label="麻雀成績",icon="🀄")
+
     # サイドバー
     st.sidebar.page_link("main.py", label="ホーム",icon="🏠")
     st.sidebar.write("### 依頼書")
@@ -61,6 +66,9 @@ else:
     st.sidebar.write("### サンプル")
     st.sidebar.page_link("pages/streamlit_sample.py", label="サンプル１",icon="1⃣")
     st.sidebar.page_link("pages/streamlit_sample2.py", label="サンプル２",icon="2⃣")
+    st.sidebar.write("### テスト")
+    st.sidebar.page_link("pages/pachinko_data.py", label="パチンコ成績",icon="💲")
+    st.sidebar.page_link("pages/mahjong_data.py", label="麻雀成績",icon="🀄")
 
     if st.sidebar.button("ログアウト"):
         st.session_state['authenticated'] = False
