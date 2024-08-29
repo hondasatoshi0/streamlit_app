@@ -13,6 +13,13 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
+with st.sidebar:
+    st.text(f"Username:{st.session_state.user_name}")
+
+if st.sidebar.button("ログアウト"):
+    st.session_state['authenticated'] = False
+
+
 
 st.title("依頼一覧")
 
