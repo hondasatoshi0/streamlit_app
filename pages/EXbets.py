@@ -60,17 +60,17 @@ try:
             st.title("ギャンブル収支")
 
             if st.session_state.page == 'page1':
-                st.write('### フィルター機能')
-                # カテゴリーリスト取得
-                category_list = ["麻雀","パチンコ","スロット"]
-
-                category_select = st.multiselect(
-                    'カテゴリーを選択',
-                    category_list,
-                    category_list
-                )
-
                 if st.button("取得"):
+                    st.write('### フィルター機能')
+                    # カテゴリーリスト取得
+                    category_list = ["麻雀","パチンコ","スロット"]
+
+                    category_select = st.multiselect(
+                        'カテゴリーを選択',
+                        category_list,
+                        category_list
+                    )
+
                     credentials = {
                         "type": st.secrets["gcp_service_account"]["type"],
                         "project_id": st.secrets["gcp_service_account"]["project_id"],
