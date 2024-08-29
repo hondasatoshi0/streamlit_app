@@ -153,6 +153,7 @@ try:
                             st.session_state.memo
                 ]
 
+                st.write(new_data)
                 # データ登録
                 worksheet.append_row(new_data)
 
