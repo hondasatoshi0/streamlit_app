@@ -17,23 +17,23 @@ if 'authenticated' not in st.session_state:
     st.session_state['authenticated'] = False
 
 if 'user_name' not in st.session_state:
-    st.session_state.user_name = ""
+    st.session_state['user_name'] = ""
 
 if 'password' not in st.session_state:
-    st.session_state.password = ""
+    st.session_state['password'] = ""
 
 # ログインしていない場合はログインフォームを表示
 if not st.session_state['authenticated']:
     st.title('ログイン画面')
-    st.session_state.user_name = st.text_input("ユーザー名")
-    st.session_state.password = st.text_input("パスワード", type="password")
+    st.session_state['user_name'] = st.text_input("ユーザー名")
+    st.session_state['password'] = st.text_input("パスワード", type="password")
 
     if st.button('ログイン'):
         with open('conf/login.toml') as f:
             user_data = toml.load(f)
 
         for i in range(len(user_data)):
-            if st.session_state.user_name == user_data[f"user_{i}"]["name"] and st.session_state.password == user_data[f"user_{i}"]["password"]:
+            if st.session_state['user_name'] == user_data[f"user_{i}"]["name"] and st.session_state['password'] == user_data[f"user_{i}"]["password"]:
                 st.session_state['authenticated'] = True
                 st.rerun()
 
