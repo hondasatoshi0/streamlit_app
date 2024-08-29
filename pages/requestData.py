@@ -15,11 +15,10 @@ st.markdown("""
 
 st.sidebar.page_link("main.py", label="ホーム",icon="🏠")
 
-if 'authenticated' not in st.session_state:
-    st.page_link("main.py","ログインページへ",icon="🏠")
-else:
+
+try:
     if not st.session_state['authenticated']:
-        st.page_link("main.py","ログインページへ",icon="🏠")
+        st.page_link("main.py",label="ログインページへ",icon="🏠")
     else:
         #! メイン
         st.title("依頼一覧")
@@ -74,3 +73,6 @@ else:
         # Streamlitでデータを表示
         st.write("### 依頼一覧表")
         st.write(df)
+
+except KeyError:
+    st.page_link("main.py",label="ログインページへ",icon="🏠")

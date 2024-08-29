@@ -12,11 +12,9 @@ st.markdown("""
 
 st.sidebar.page_link("main.py", label="ホーム",icon="🏠")
 
-if 'authenticated' not in st.session_state:
-  st.page_link("main.py","ログインページへ",icon="🏠")
-else:
+try:
   if not st.session_state['authenticated']:
-    st.page_link("main.py","ログインページへ",icon="🏠")
+    st.page_link("main.py",label="ログインページへ",icon="🏠")
   else:
     st.write("# Streamlit sample2")
 
@@ -38,3 +36,5 @@ else:
     for i in range(0,100):
       time.sleep(0.1)
       my_bar.progress(i+1)
+except KeyError:
+  st.page_link("main.py",label="ログインページへ",icon="🏠")
