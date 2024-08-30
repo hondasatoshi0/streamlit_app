@@ -3,13 +3,17 @@ import cv2
 import numpy as np
 from PIL import Image
 
+# 初期化
+if "before_file" not in st.session_state:
+    st.session_state.before_file = ""
+
 st.title("画像処理")
 
 # 画像をアップロード
 uploaded_file = st.file_uploader("画像をアップロード", type=["jpg", "png", "jpeg"])
 
-if st.button("実行"):
-    if uploaded_file is not None:
+if uploaded_file is not None:
+    if not st.session_state.before_file == uploaded_file:
         # PILで画像を読み込む
         image = Image.open(uploaded_file)
 
@@ -39,5 +43,6 @@ if st.button("実行"):
             st.image(edges_image, caption="エッジ画像", use_column_width=True)
         with cols2[1]:
             st.image(corners_image, caption="コーナー画像", use_column_width=True)
-    else:
-        st.error("実行できませんでした。画像をアップロードしてください。")
+
+        st.session_state.before_file = uploaded_file
+
