@@ -21,7 +21,10 @@ if uploaded_file is not None:
     # コーナー
     corners_image = cv2.cornerHarris(gray_image, 2, 3, 0.04)
 
-    # Streamlit上で画像を表示
-    st.image(image_np, caption="リサイズされた画像", use_column_width=True)
-    st.image(edges_image, caption="エッジ画像", use_column_width=True)
+    cols2 = st.columns(2)
+    with cols2[0]:
+        st.image(image_np, caption="リサイズされた画像", use_column_width=True)
+    with cols2[1]:
+        st.image(edges_image, caption="エッジ画像", use_column_width=True)
+
     st.image(corners_image, caption="コーナー画像", use_column_width=True)
