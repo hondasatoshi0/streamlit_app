@@ -26,7 +26,7 @@ if uploaded_file is not None:
     # ノイズの除去
     denoised_image = cv2.fastNlMeansDenoising(gray_image)
     # OCRによる文字認識
-    text = pytesseract.image_to_string(Image.fromarray(denoised_image), lang='jpn')
+    text = pytesseract.image_to_string(denoised_image, lang='jpn')
 
     st.image(image_np, caption="画像", use_column_width=True)
 
