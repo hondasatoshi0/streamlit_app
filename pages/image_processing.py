@@ -1,15 +1,23 @@
 import streamlit as st
 import cv2
 import numpy as np
+from PIL import Image
 
-st.title("画像処理")
+# 画像をアップロード
+uploaded_file = st.file_uploader("画像をアップロード", type=["jpg", "png", "jpeg"])
 
-# アップローダー
-file_path = st.file_uploader("画像をアップロードしてください。",type=["png","jpg","jpeg"])
+if uploaded_file is not None:
+    # PILで画像を読み込む
+    image = Image.open(uploaded_file)
 
-if file_path:
-    image_bytes = file_path.read()
+    # 画像をOpenCVの形式に変換
+    image_np = np.array(image)
+    image_cv = cv2.cvtColor(image_np, cv2.COLOR_RGB2BGR)
 
-    image = cv2.imdecode(np.frombuffer(image_bytes, np.unit8), cv2.IMREAD_COLOR)
+    # 画像を表示（OpenCVウィンドウ）
+    cv2.imshow("Uploaded Image", image_cv)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
 
-    st.image(image, channels="BGR")
+    # Streamlit上で画像を表示
+    st.image(image, caption="アップロードされた画像", use_column_width=True)
