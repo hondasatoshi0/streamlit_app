@@ -20,6 +20,10 @@ if uploaded_file is not None:
     resize_image = cv2.resize(gray_image,(500,500))
     # エッジ
     edges_image = cv2.Canny(resize_image, 100 ,200)
+    # コーナー
+    corners_image = cv2.cornerHarris(resize_image, 2, 3, 0.04)
 
     # Streamlit上で画像を表示
-    st.image(edges_image, caption="画像処理", use_column_width=True)
+    st.image(resize_image, caption="リサイズされた画像", use_column_width=True)
+    st.image(edges_image, caption="エッジ画像", use_column_width=True)
+    st.image(corners_image, caption="コーナー画像", use_column_width=True)
