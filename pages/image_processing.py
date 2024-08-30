@@ -26,10 +26,10 @@ if uploaded_file is not None:
     corners_image = np.copy(image_np)
     corners_image[dst>0.05*dst.max()] = [0,0,255]
 
-    cols2 = st.columns(2)
+    cols2 = st.columns(3)
     with cols2[0]:
         st.image(image_np, caption="リサイズされた画像", use_column_width=True)
     with cols2[1]:
         st.image(edges_image, caption="エッジ画像", use_column_width=True)
-
-    st.image(corners_image, caption="コーナー画像", use_column_width=True)
+    with cols2[2]:
+        st.image(corners_image, caption="コーナー画像", use_column_width=True)
