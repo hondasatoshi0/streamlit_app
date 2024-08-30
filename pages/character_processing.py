@@ -6,6 +6,12 @@ import pytesseract
 
 st.title("文字認識")
 
+# サイドバー設定
+st.sidebar.page_link("main.py", label="ホーム",icon="🏠")
+st.sidebar.write("### 画像処理")
+st.sidebar.page_link("pages/image_processing.py",label="画像処理",icon="📷")
+st.sidebar.page_link("pages/character_processing.py",label="文字認識",icon="🔤")
+
 # 画像をアップロード
 uploaded_file = st.file_uploader("画像をアップロード", type=["jpg", "png", "jpeg"])
 
