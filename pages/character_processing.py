@@ -22,14 +22,11 @@ if uploaded_file is not None:
     # 画像をOpenCVの形式に変換
     image_np = np.array(image)
     # グレースケールに変換
-    gray_image = cv2.cvtColor(image,cv2.COLOR_RGB2GRAY)
-
+    gray_image = cv2.cvtColor(image_np,cv2.COLOR_RGB2GRAY)
     # ノイズの除去
     denoised = cv2.fastNlMeansDenoising(gray_image)
-
     # OCRによる文字認識
     text = pytesseract.image_to_string(Image.fromarray(denoised), lang='jpn')
-
 
     st.image(image_np, caption="画像", use_column_width=True)
 
