@@ -38,10 +38,6 @@ if 'model_name' not in st.session_state:
 if 'memo' not in st.session_state:
     st.session_state.memo = ''
 
-if 'firstLoop' not in st.session_state:
-    st.session_state.firstLoop = True
-
-
 # ページ移行の関数
 if 'page' not in st.session_state:
     st.session_state.page = "page1"
@@ -66,7 +62,7 @@ try:
             category_list = ["麻雀","パチンコ","スロット"]
 
             if st.session_state.page == 'page1':
-                if st.session_state.firstLoop == True:
+                if st.button("表示"):
                     # フィルター
                     st.write('### フィルター機能')
                     category_select = st.multiselect(
@@ -108,8 +104,6 @@ try:
                     # Streamlitでデータを表示
                     st.write("### ギャンブル収支表")
                     st.write(df)
-
-                    st.session_state.firstLoop = False
 
                 st.markdown("---") # 区切り線
 
@@ -184,7 +178,6 @@ try:
                 st.success("登録完了")
 
                 if st.button("戻る"):
-                    st.session_state.firstLoop = True
                     go_to_page('page1')
                     st.rerun()
 
