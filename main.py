@@ -55,6 +55,8 @@ else:
 
     st.write("### 個人用")
     st.page_link("pages/EXbets.py", label="ギャンブル収支",icon="💲")
+    st.page_link("pages/image_processing.py",label="画像処理",icon="📷")
+
 
     # サイドバー
     st.sidebar.page_link("main.py", label="ホーム",icon="🏠")
@@ -66,6 +68,7 @@ else:
     st.sidebar.page_link("pages/streamlit_sample2.py", label="サンプル２",icon="2⃣")
     st.sidebar.write("### 個人用")
     st.sidebar.page_link("pages/EXbets.py", label="ギャンブル収支",icon="💲")
+    st.sidebar.page_link("pages/image_processing.py",label="画像処理",icon="📷")
 
 
     if st.sidebar.button("ログアウト"):
