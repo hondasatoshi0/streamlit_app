@@ -49,13 +49,18 @@ else:
     st.page_link("pages/requestForm.py", label="依頼書フォーム",icon="🌟")
     st.page_link("pages/requestData.py", label="依頼一覧",icon="🌟")
 
+    # 画像処理
+    st.write("### 画像処理")
+    st.page_link("pages/image_processing.py",label="画像処理",icon="📷")
+    st.page_link("pages/character_processing.py",label="文字認識",icon="🔤")
+
     st.write("### サンプル")
     st.page_link("pages/streamlit_sample.py", label="サンプル１",icon="1⃣")
     st.page_link("pages/streamlit_sample2.py", label="サンプル２",icon="2⃣")
 
     st.write("### 個人用")
     st.page_link("pages/EXbets.py", label="ギャンブル収支",icon="💲")
-    st.page_link("pages/image_processing.py",label="画像処理",icon="📷")
+
 
 
     # サイドバー
@@ -63,13 +68,14 @@ else:
     st.sidebar.write("### 依頼書")
     st.sidebar.page_link("pages/requestForm.py", label="依頼書フォーム",icon="🌟")
     st.sidebar.page_link("pages/requestData.py", label="依頼一覧",icon="🌟")
+    st.sidebar.write("### 画像処理")
+    st.sidebar.page_link("pages/image_processing.py",label="画像処理",icon="📷")
+    st.sidebar.page_link("pages/character_processing.py",label="文字認識",icon="🔤")
     st.sidebar.write("### サンプル")
     st.sidebar.page_link("pages/streamlit_sample.py", label="サンプル１",icon="1⃣")
     st.sidebar.page_link("pages/streamlit_sample2.py", label="サンプル２",icon="2⃣")
     st.sidebar.write("### 個人用")
     st.sidebar.page_link("pages/EXbets.py", label="ギャンブル収支",icon="💲")
-    st.sidebar.page_link("pages/image_processing.py",label="画像処理",icon="📷")
-
 
     if st.sidebar.button("ログアウト"):
         st.session_state['authenticated'] = False
