@@ -19,7 +19,12 @@ if uploaded_file is not None:
     # エッジ
     edges_image = cv2.Canny(gray_image, 100 ,200)
     # コーナー
-    corners_image = cv2.cornerHarris(gray_image, 2, 3, 0.04)
+    img_dst = np.copy(gray_image)
+    dst = cv2.cornerHarris(gray_image, 2, 3, 0.04, img_dst)
+    dst = cv2.dilate(dst,None,iterations=3)
+
+    corners_image = np.copy(image_np)
+    corners_image[dst>0.05*dst.max()] = [0,0,255]
 
     cols2 = st.columns(2)
     with cols2[0]:
