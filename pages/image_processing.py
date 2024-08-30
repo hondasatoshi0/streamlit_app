@@ -8,7 +8,7 @@ uploaded_file = st.file_uploader("アクセスログをアップロードして�
 
 st.write(uploaded_file)
 
-image = cv2.imread(uploaded_file)
+image = cv2.imread(uploaded_file["name"])
 
 cv2.imshow("Normal",image)
 cv2.waitKey(0)
