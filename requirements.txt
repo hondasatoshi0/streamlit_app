@@ -7,3 +7,4 @@ configparser
 streamlit_authenticator
 opencv-python
 pytesseract
+matplotlib
