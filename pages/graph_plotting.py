@@ -23,7 +23,5 @@ st.write('### グラフ２')
 uploaded_file = st.file_uploader("テキスト形式ファイルをアップロード", type=["txt", "csv"])
 
 if uploaded_file is not None:
-    data_fream = pd.csv_reader(uploaded_file,header = 1, names=(("Date and time","実績ショット数","サイクルタイム実積値")))
+    data_fream = pd.csv_reader(uploaded_file,header = 1, names=(("Date and time","実績ショット数")))
     st.line_chart(data_fream)
-
-
