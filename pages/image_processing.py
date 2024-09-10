@@ -38,7 +38,6 @@ if uploaded_file is not None:
     with cols1[1]:
         st.image(gray_image, caption="グレー画像", use_column_width=True)
 
-
     cols2 = st.columns(2)
     with cols2[0]:
         st.image(edges_image, caption="エッジ画像", use_column_width=True)
