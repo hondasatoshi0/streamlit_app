@@ -79,7 +79,7 @@ try:
         if st.session_state.page == 'page1':
             cols = st.columns(2)
             with cols[0]:
-                st.title("依頼書フォーム")
+                st.write("依頼書フォーム")
             with cols[1]:
                 st.write(f"現在日時：{datetime.datetime.now(pytz.timezone('Asia/Tokyo')).strftime("%Y/%m/%d %H:%M:%S")}")
 
@@ -135,7 +135,7 @@ try:
                             st.error("【エラー】希望納期を選択してください。")
 
         elif st.session_state.page == 'page2':
-            st.title("回答を送信しました。")
+            st.write("回答を送信しました。")
             if st.session_state.sent == 0:
                 # 認証情報
                 credentials = {

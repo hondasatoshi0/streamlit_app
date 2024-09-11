@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-st.title = ("グラフ表示")
 # サイドバー設定
 st.sidebar.page_link("main.py", label="ホーム",icon="🏠")
 st.sidebar.write("### 処理")

@@ -4,7 +4,7 @@ import numpy as np
 from PIL import Image
 import pytesseract
 
-st.title("文字認識")
+st.write("文字認識")
 
 # サイドバー設定
 st.sidebar.page_link("main.py", label="ホーム",icon="🏠")

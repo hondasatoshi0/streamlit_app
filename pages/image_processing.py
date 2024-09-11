@@ -3,7 +3,7 @@ import cv2
 import numpy as np
 from PIL import Image
 
-st.title("画像処理")
+st.write("画像処理")
 
 # サイドバー設定
 st.sidebar.page_link("main.py", label="ホーム",icon="🏠")
