@@ -31,8 +31,11 @@ try:
     if not st.session_state['authenticated']:
         st.page_link("main.py",label="ログインページへ",icon="🏠")
     else:
-        # サイドバー設定
+        # サイドバー
         st.sidebar.page_link("main.py", label="ホーム",icon="🏠")
+        st.sidebar.write("### 依頼書")
+        st.sidebar.page_link("pages/requestForm.py", label="依頼書フォーム",icon="🌟")
+        st.sidebar.page_link("pages/requestData.py", label="依頼一覧",icon="🌟")
 
         #! メイン
         # 初期値設定
