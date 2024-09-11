@@ -24,7 +24,7 @@ if 'password' not in st.session_state:
 
 # ログインしていない場合はログインフォームを表示
 if not st.session_state['authenticated']:
-    st.title('ログイン画面')
+    # st.title('ログイン画面')
     st.session_state['user_name'] = st.text_input("ユーザー名")
     st.session_state['password'] = st.text_input("パスワード", type="password")
 
